@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<robot name="desherborator" xmlns:xacro="http://www.ros.org/wiki/xacro">
+<robot name="desherborator_parametors" xmlns:xacro="http://www.ros.org/wiki/xacro">
     <xacro:property name="chassisHeight" value="0.2"/>
     <xacro:property name="chassisWidth" value="0.3"/>
     <xacro:property name="cameraSize" value="0.1"/>

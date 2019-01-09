@@ -1,8 +1,8 @@
-<xml version="1.0"?>
+<?xml version="1.0"?>
 <!-- Here are defined the materials used for defining the robot in the simulation
     Author : Elodie NOELE -->
 
-<robot>
+<robot name="desherborator_materials" xmlns:xacro="http://ros.org/wiki/xacro">
   <material name="black">
     <color rgba="0.0 0.0 0.0 1.0"/>
   </material>
