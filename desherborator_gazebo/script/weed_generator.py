@@ -1,25 +1,12 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Jan  9 14:54:09 2019
-
-@author: houdeval
-"""
-
-# -*- coding: utf-8 -*-
-"""
-Spyder Editor
-
-This is a temporary script file.
-"""
+#!/usr/bin/env python
 
 from random import uniform
+import sys
+import rospy
 
-fichier_modele = 'model.sdf'
-nombre_plantes = 6
-
-def generer_herbe(fichier, nombre_plantes=1):
+def generer_herbe (fichier, nombre_plantes=1):
     if nombre_plantes <= 0 or type(nombre_plantes) is not int:
-        print("nombre_plantes doit etre un nombre entier égal ou plus grand que 1")
+        #print("nombre_plantes doit etre un nombre entier egal ou plus grand que 1")
         return None
         
         
@@ -84,4 +71,8 @@ def generer_herbe(fichier, nombre_plantes=1):
         f.close()
 
 if __name__ == '__main__':
+    #PATH = "/home/haddock/5.8/src/desherborator_gazebo/model/"
+    PATH = sys.argv[1]
+    fichier_modele = PATH+"model.sdf"
+    nombre_plantes = 6
     generer_herbe(fichier_modele, nombre_plantes)
