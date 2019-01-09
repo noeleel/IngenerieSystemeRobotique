@@ -2,4 +2,4 @@ build/
 devel/
 *.log
 *.xml
-CMakelists.txt
+CMakeLists.txt
