@@ -1,18 +1,19 @@
-<xml version="1.0"?>
+<?xml version="1.0"?>
 <!-- Create the robot sensors. The robot has the following sensors :
     Lidar : an hokuyo sensor
     Camera : Front camera of the robot
     Laser : the laser for burning the weeds 
     Author : Elodie NOELE --> 
 
-<xacro:include filename="./desherborator.parameters.xacro" />
-<xacro:include filename="./desherborator.materials.xacro" />
-<xacro:include filename="./desherborator.joint.xacro" />
 
-<xacro:property name="chassisHeight" value="0.1"/>
 
-<robot name="desherborator" xmlns:xacro="http://ros.org/wiki/xacro">
+<robot name="desherborator_sensor" xmlns:xacro="http://ros.org/wiki/xacro">
 
+    <xacro:include filename="./desherborator.parameters.xacro" />
+    <xacro:include filename="./desherborator.materials.xacro" />
+    <xacro:include filename="./desherborator.joint.xacro" />
+
+    <xacro:property name="chassisHeight" value="0.1"/>
     <xacro:macro name="LIDAR">
         <gazebo reference="LIDAR">
             <material name= "black"/>
