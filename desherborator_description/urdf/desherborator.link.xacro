@@ -1,296 +1,278 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-
+<?xml version="1.0"?>
 <robot name="desherborator_links" xmlns:xacro="http://ros.org/wiki/xacro">
-    
-<!-- ########################################################### -->
-<!-- #                link base_link                           # -->
-<!-- ########################################################### -->
- 
-<link name="base_link"/>
+  
+  <!-- Base Chassis -->
+  <link name="base_link"/>
 
-<!-- ########################################################### -->
-<!-- #                link Chassis                             # -->
-<!-- ########################################################### -->
+  <!-- Link Chassis -->
+  <link name="Chassis">
+  <collision>
+    <origin xyz="0 0 0.05" rpy="0 0 0"/>
+    <geometry>
+      <box size="0.4 0.3 0.2"/>
+    </geometry>
+  </collision>
 
-<link name="Chassis">
-<collision>
-  <origin xyz="0 0 0.05" rpy="0 0 0"/>
-  <geometry>
-    <box size="0.4 0.3 0.2"/>
-  </geometry>
-</collision>
+  <visual>
+    <origin xyz="0 0 0.05" rpy="0 0 0"/>
+    <geometry>
+      <box size="0.4 0.3 0.2"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
 
-<visual>
-  <origin xyz="0 0 0.05" rpy="0 0 0"/>
-  <geometry>
-    <box size="0.4 0.3 0.2"/>
-  </geometry>
-  <material name="black"/>
-</visual>
+  <inertial>
+    <origin xyz="0 0 0.05" rpy="0 0 0"/>
+    <mass value="1"/>
+    <inertia
+      ixx="0.01" ixy="0.0" ixz="0.0"
+      iyy="0.01" iyz="0.0"
+      izz="0.01"/>
+  </inertial>
+  </link>
 
-<inertial>
-  <origin xyz="0 0 0.05" rpy="0 0 0"/>
-  <mass value="1"/>
-  <inertia
-    ixx="0.01" ixy="0.0" ixz="0.0"
-    iyy="0.01" iyz="0.0"
-    izz="0.01"/>
-</inertial>
-</link>
+  <!-- Link Roue -->
+  <!-- link Roue Folle -->
+  <link name="RoueF">
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <sphere radius="0.05"/>
+    </geometry>
+  </collision>
 
-<!-- ########################################################### -->
-<!-- #                link Roues                               # -->
-<!-- ########################################################### -->
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <sphere radius="0.05"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
 
-<!-- link Roue Folle -->
-<link name="RoueF">
-<collision>
-  <origin xyz="0 0 0" rpy="0 0 0"/>
-  <geometry>
-    <sphere radius="0.05"/>
-  </geometry>
-</collision>
+  <inertial>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <mass value="0.01"/>
+    <inertia
+      ixx="0.01" ixy="0.0" ixz="0.0"
+      iyy="0.01" iyz="0.0"
+      izz="0.01"/>
+  </inertial>
+  </link>
 
-<visual>
-  <origin xyz="0 0 0" rpy="0 0 0"/>
-  <geometry>
-    <sphere radius="0.05"/>
-  </geometry>
-  <material name="black"/>
-</visual>
+  <!-- link Roue Gauche -->
+  <link name="RoueG">
+  <collision>
+    <origin xyz="0 0 0" rpy="0 1.5707 1.5707"/>
+    <geometry>
+      <cylinder radius="0.15" length="0.1"/>
+    </geometry>
+  </collision>
 
-<inertial>
-  <origin xyz="0 0 0" rpy="0 0 0"/>
-  <mass value="0.01"/>
-  <inertia
-    ixx="0.01" ixy="0.0" ixz="0.0"
-    iyy="0.01" iyz="0.0"
-    izz="0.01"/>
-</inertial>
-</link>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 1.5707 1.5707"/>
+    <geometry>
+      <cylinder radius="0.15" length="0.1"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
 
-<!-- link Roue Gauche -->
-<link name="RoueG">
-<collision>
-  <origin xyz="0 0 0" rpy="0 1.5707 1.5707"/>
-  <geometry>
-    <cylinder radius="0.15" length="0.1"/>
-  </geometry>
-</collision>
+  <inertial>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <mass value="0.01"/>
+    <inertia
+      ixx="0.01" ixy="0.0" ixz="0.0"
+      iyy="0.01" iyz="0.0"
+      izz="0.01"/>
+  </inertial>
+  </link>
 
-<visual>
-  <origin xyz="0 0 0" rpy="0 1.5707 1.5707"/>
-  <geometry>
-    <cylinder radius="0.15" length="0.1"/>
-  </geometry>
-  <material name="black"/>
-</visual>
+  <!-- link Roue Droite -->
+  <link name="RoueD">
+  <collision>
+    <origin xyz="0 0 0" rpy="0 1.5707 1.5707"/>
+    <geometry>
+      <cylinder radius="0.15" length="0.1"/>
+    </geometry>
+  </collision>
 
-<inertial>
-  <origin xyz="0 0 0" rpy="0 0 0"/>
-  <mass value="0.01"/>
-  <inertia
-    ixx="0.01" ixy="0.0" ixz="0.0"
-    iyy="0.01" iyz="0.0"
-    izz="0.01"/>
-</inertial>
-</link>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 1.5707 1.5707"/>
+    <geometry>
+      <cylinder radius="0.15" length="0.1"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
 
-<!-- link Roue Droite -->
-<link name="RoueD">
-<collision>
-  <origin xyz="0 0 0" rpy="0 1.5707 1.5707"/>
-  <geometry>
-    <cylinder radius="0.15" length="0.1"/>
-  </geometry>
-</collision>
+  <inertial>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <mass value="0.01"/>
+    <inertia
+      ixx="0.01" ixy="0.0" ixz="0.0"
+      iyy="0.01" iyz="0.0"
+      izz="0.01"/>
+  </inertial>
+  </link>
 
-<visual>
-  <origin xyz="0 0 0" rpy="0 1.5707 1.5707"/>
-  <geometry>
-    <cylinder radius="0.15" length="0.1"/>
-  </geometry>
-  <material name="black"/>
-</visual>
+  <!-- link Mat -->
+  <link name="Mat">
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <cylinder radius="0.01" length="0.2"/>
+    </geometry>
+  </collision>
 
-<inertial>
-  <origin xyz="0 0 0" rpy="0 0 0"/>
-  <mass value="0.01"/>
-  <inertia
-    ixx="0.01" ixy="0.0" ixz="0.0"
-    iyy="0.01" iyz="0.0"
-    izz="0.01"/>
-</inertial>
-</link>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <cylinder radius="0.01" length="0.2"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
 
-<!-- ########################################################### -->
-<!-- #                link Mat                                 # -->
-<!-- ########################################################### -->
+  <inertial>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <mass value="0.01"/>
+    <inertia
+      ixx="0.01" ixy="0.0" ixz="0.0"
+      iyy="0.01" iyz="0.0"
+      izz="0.01"/>
+  </inertial>
+  </link>
 
-<link name="Mat">
-<collision>
-  <origin xyz="0 0 0" rpy="0 0 0"/>
-  <geometry>
-    <cylinder radius="0.01" length="0.2"/>
-  </geometry>
-</collision>
+  <!-- link Bras -->
+  <!-- link Bras Cylindre 1 -->
+  <link name="BrasC1">
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <cylinder radius="0.01" length="0.25"/>
+    </geometry>
+  </collision>
 
-<visual>
-  <origin xyz="0 0 0" rpy="0 0 0"/>
-  <geometry>
-    <cylinder radius="0.01" length="0.2"/>
-  </geometry>
-  <material name="black"/>
-</visual>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <cylinder radius="0.01" length="0.25"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
 
-<inertial>
-  <origin xyz="0 0 0" rpy="0 0 0"/>
-  <mass value="0.01"/>
-  <inertia
-    ixx="0.01" ixy="0.0" ixz="0.0"
-    iyy="0.01" iyz="0.0"
-    izz="0.01"/>
-</inertial>
-</link>
+  <inertial>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <mass value="0.01"/>
+    <inertia
+      ixx="0.01" ixy="0.0" ixz="0.0"
+      iyy="0.01" iyz="0.0"
+      izz="0.01"/>
+  </inertial>
+  </link>
 
-<!-- ########################################################### -->
-<!-- #                link Bras                                # -->
-<!-- ########################################################### -->
+  <!-- link Bras Cylindre 2 -->
+  <link name="BrasC2">
+  <collision>
+    <origin xyz="0 0 0" rpy="0 1.5707 1.5707"/>
+    <geometry>
+      <cylinder radius="0.01" length="0.3"/>
+    </geometry>
+  </collision>
 
-<!-- link Bras Cylindre 1 -->
-<link name="BrasC1">
-<collision>
-  <origin xyz="0 0 0" rpy="0 0 0"/>
-  <geometry>
-    <cylinder radius="0.01" length="0.25"/>
-  </geometry>
-</collision>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <cylinder radius="0.01" length="0.3"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
 
-<visual>
-  <origin xyz="0 0 0" rpy="0 0 0"/>
-  <geometry>
-    <cylinder radius="0.01" length="0.25"/>
-  </geometry>
-  <material name="black"/>
-</visual>
+  <inertial>
+    <origin xyz="0 0 0" rpy="0 1.5707 1.5707"/>
+    <mass value="0.01"/>
+    <inertia
+      ixx="0.01" ixy="0.0" ixz="0.0"
+      iyy="0.01" iyz="0.0"
+      izz="0.01"/>
+  </inertial>
+  </link>
 
-<inertial>
-  <origin xyz="0 0 0" rpy="0 0 0"/>
-  <mass value="0.01"/>
-  <inertia
-    ixx="0.01" ixy="0.0" ixz="0.0"
-    iyy="0.01" iyz="0.0"
-    izz="0.01"/>
-</inertial>
-</link>
+  <!-- link Bras Cylindre 3 -->
+  <link name="BrasC3">
+  <collision>
+    <origin xyz="0 0 0" rpy="0 3.14 0"/>
+    <geometry>
+      <cylinder radius="0.01" length="0.1"/>
+    </geometry>
+  </collision>
 
-<!-- link Bras Cylindre 2 -->
-<link name="BrasC2">
-<collision>
-  <origin xyz="0 0 0" rpy="0 1.5707 1.5707"/>
-  <geometry>
-    <cylinder radius="0.01" length="0.3"/>
-  </geometry>
-</collision>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 3.14 0"/>
+    <geometry>
+      <cylinder radius="0.01" length="0.1"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
 
-<visual>
-  <origin xyz="0 0 0" rpy="0 0 0"/>
-  <geometry>
-    <cylinder radius="0.01" length="0.3"/>
-  </geometry>
-  <material name="black"/>
-</visual>
+  <inertial>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <mass value="0.01"/>
+    <inertia
+      ixx="0.01" ixy="0.0" ixz="0.0"
+      iyy="0.01" iyz="0.0"
+      izz="0.01"/>
+  </inertial>
+  </link>
 
-<inertial>
-  <origin xyz="0 0 0" rpy="0 1.5707 1.5707"/>
-  <mass value="0.01"/>
-  <inertia
-    ixx="0.01" ixy="0.0" ixz="0.0"
-    iyy="0.01" iyz="0.0"
-    izz="0.01"/>
-</inertial>
-</link>
+  <!-- link Bras Sphere 1 -->
+  <link name="BrasS1">
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <sphere radius="0.02"/>
+    </geometry>
+  </collision>
 
-<!-- link Bras Cylindre 3 -->
-<link name="BrasC3">
-<collision>
-  <origin xyz="0 0 0" rpy="0 3.14 0"/>
-  <geometry>
-    <cylinder radius="0.01" length="0.1"/>
-  </geometry>
-</collision>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <sphere radius="0.02"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
 
-<visual>
-  <origin xyz="0 0 0" rpy="0 3.14 0"/>
-  <geometry>
-    <cylinder radius="0.01" length="0.1"/>
-  </geometry>
-  <material name="black"/>
-</visual>
+  <inertial>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <mass value="0.01"/>
+    <inertia
+      ixx="0.01" ixy="0.0" ixz="0.0"
+      iyy="0.01" iyz="0.0"
+      izz="0.01"/>
+  </inertial>
+  </link>
 
-<inertial>
-  <origin xyz="0 0 0" rpy="0 0 0"/>
-  <mass value="0.01"/>
-  <inertia
-    ixx="0.01" ixy="0.0" ixz="0.0"
-    iyy="0.01" iyz="0.0"
-    izz="0.01"/>
-</inertial>
-</link>
+  <!-- link Bras Sphere 2 -->
+  <link name="BrasS2">
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <sphere radius="0.02"/>
+    </geometry>
+  </collision>
 
-<!-- link Bras Sphere 1 -->
-<link name="BrasS1">
-<collision>
-  <origin xyz="0 0 0" rpy="0 0 0"/>
-  <geometry>
-    <sphere radius="0.02"/>
-  </geometry>
-</collision>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <sphere radius="0.02"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
 
-<visual>
-  <origin xyz="0 0 0" rpy="0 0 0"/>
-  <geometry>
-    <sphere radius="0.02"/>
-  </geometry>
-  <material name="black"/>
-</visual>
-
-<inertial>
-  <origin xyz="0 0 0" rpy="0 0 0"/>
-  <mass value="0.01"/>
-  <inertia
-    ixx="0.01" ixy="0.0" ixz="0.0"
-    iyy="0.01" iyz="0.0"
-    izz="0.01"/>
-</inertial>
-</link>
-
-<!-- link Bras Sphere 2 -->
-<link name="BrasS2">
-<collision>
-  <origin xyz="0 0 0" rpy="0 0 0"/>
-  <geometry>
-    <sphere radius="0.02"/>
-  </geometry>
-</collision>
-
-<visual>
-  <origin xyz="0 0 0" rpy="0 0 0"/>
-  <geometry>
-    <sphere radius="0.02"/>
-  </geometry>
-  <material name="black"/>
-</visual>
-
-<inertial>
-  <origin xyz="0 0 0" rpy="0 0 0"/>
-  <mass value="0.01"/>
-  <inertia
-    ixx="0.01" ixy="0.0" ixz="0.0"
-    iyy="0.01" iyz="0.0"
-    izz="0.01"/>
-</inertial>
-</link>
-
+  <inertial>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <mass value="0.01"/>
+    <inertia
+      ixx="0.01" ixy="0.0" ixz="0.0"
+      iyy="0.01" iyz="0.0"
+      izz="0.01"/>
+  </inertial>
+  </link>
 </robot>
