@@ -1,23 +1,13 @@
 <?xml version="1.0"?>
 <package format="2">
-<<<<<<< HEAD
-  <name>desherborator_gazebo</name>
-  <version>0.0.0</version>
-  <description>The desherborator_gazebo package</description>
-=======
   <name>world_desherborator</name>
   <version>0.0.0</version>
   <description>The world_desherborator package</description>
->>>>>>> c276485ebd21b4fda250eed5517cbf44ee9d7271
 
   <!-- One maintainer tag required, multiple allowed, one person per tag -->
   <!-- Example:  -->
   <!-- <maintainer email="jane.doe@example.com">Jane Doe</maintainer> -->
-<<<<<<< HEAD
-  <maintainer email="deegs@todo.todo">deegs</maintainer>
-=======
   <maintainer email="clavier@todo.todo">clavier</maintainer>
->>>>>>> c276485ebd21b4fda250eed5517cbf44ee9d7271
 
 
   <!-- One license tag required, multiple allowed, one license per tag -->
@@ -29,11 +19,7 @@
   <!-- Url tags are optional, but multiple are allowed, one per tag -->
   <!-- Optional attribute type can be: website, bugtracker, or repository -->
   <!-- Example: -->
-<<<<<<< HEAD
-  <!-- <url type="website">http://wiki.ros.org/desherborator_gazebo</url> -->
-=======
   <!-- <url type="website">http://wiki.ros.org/world_desherborator</url> -->
->>>>>>> c276485ebd21b4fda250eed5517cbf44ee9d7271
 
 
   <!-- Author tags are optional, multiple are allowed, one per tag -->
@@ -63,15 +49,12 @@
   <!-- Use doc_depend for packages you need only for building documentation: -->
   <!--   <doc_depend>doxygen</doc_depend> -->
   <buildtool_depend>catkin</buildtool_depend>
-<<<<<<< HEAD
-=======
   <build_depend>roscpp</build_depend>
   <build_depend>rospy</build_depend>
   <build_export_depend>roscpp</build_export_depend>
   <build_export_depend>rospy</build_export_depend>
   <exec_depend>roscpp</exec_depend>
   <exec_depend>rospy</exec_depend>
->>>>>>> c276485ebd21b4fda250eed5517cbf44ee9d7271
 
 
   <!-- The export tag contains other, unspecified, tags -->
