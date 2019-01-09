@@ -1,7 +1,8 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 
-
+<robot name="desherborator_links" xmlns:xacro="http://ros.org/wiki/xacro">
+    
 <!-- ########################################################### -->
 <!-- #                link base_link                           # -->
 <!-- ########################################################### -->
@@ -187,7 +188,7 @@
 <!-- link Bras Cylindre 2 -->
 <link name="BrasC2">
 <collision>
-  <origin xyz="0 0 0" rpy="0 0 1.5707 1.5707"/>
+  <origin xyz="0 0 0" rpy="0 1.5707 1.5707"/>
   <geometry>
     <cylinder radius="0.01" length="0.3"/>
   </geometry>
@@ -202,7 +203,7 @@
 </visual>
 
 <inertial>
-  <origin xyz="0 0 0" rpy="0 0 1.5707 1.5707"/>
+  <origin xyz="0 0 0" rpy="0 1.5707 1.5707"/>
   <mass value="0.01"/>
   <inertia
     ixx="0.01" ixy="0.0" ixz="0.0"
@@ -291,3 +292,5 @@
     izz="0.01"/>
 </inertial>
 </link>
+
+</robot>
