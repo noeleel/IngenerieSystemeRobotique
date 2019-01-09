@@ -267,10 +267,10 @@
       <static>1</static>
     </model>
     <state world_name='default'>
-      <sim_time>93 796000000</sim_time>
-      <real_time>94 792872400</real_time>
-      <wall_time>1547027239 707100503</wall_time>
-      <iterations>93796</iterations>
+      <sim_time>113 678000000</sim_time>
+      <real_time>20 7900148</real_time>
+      <wall_time>1547044115 633739623</wall_time>
+      <iterations>19882</iterations>
       <model name='ground_plane'>
         <pose frame=''>0 0 0 0 -0 0</pose>
         <scale>1 1 1</scale>
@@ -309,16 +309,79 @@
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
+      <model name='unit_box'>
+        <static>1</static>
+        <pose frame=''>0.130072 2.20525 0 0 -0 0</pose>
+        <scale>20.4535 29.2473 0.026067</scale>
+        <link name='link'>
+          <pose frame=''>0.130072 2.20525 0 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
       <light name='sun'>
         <pose frame=''>0 0 10 0 -0 0</pose>
       </light>
     </state>
     <gui fullscreen='0'>
       <camera name='user_camera'>
-        <pose frame=''>18.1647 -5.13555 4.54902 0 0.275643 2.35619</pose>
+        <pose frame=''>25.4963 4.71551 24.5842 0 0.841006 -3.1165</pose>
         <view_controller>orbit</view_controller>
         <projection_type>perspective</projection_type>
       </camera>
     </gui>
+    <model name='unit_box'>
+      <static>1</static>
+      <pose frame=''>-4.20669 4.58949 0.5 0 -0 0</pose>
+      <link name='link'>
+        <inertial>
+          <mass>1</mass>
+          <inertia>
+            <ixx>0.166667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.166667</iyy>
+            <iyz>0</iyz>
+            <izz>0.166667</izz>
+          </inertia>
+        </inertial>
+        <collision name='collision'>
+          <geometry>
+            <box>
+              <size>1 0.999999 0.99999</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <box>
+              <size>1 0.999999 0.99999</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Grey</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
   </world>
 </sdf>
