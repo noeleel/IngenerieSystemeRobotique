@@ -1,74 +1,79 @@
-<?xml version="1.0"?>
+<?xml  version="1.0"?>
 
-<robot name="desherborator_joints" xmlns:xacro="http://ros.org/wiki/xacro">
-        <joint name="base_joint" type="fixed">
-                <parent link="base_link"/>
-                <child link="Chassis"/>
-                <origin xyz="0 0 0.05" rpy="0 0 0"/>
+<robot  name="desherborator_joints"  xmlns:xacro="http://ros.org/wiki/xacro">
+
+        <xacro:include  filename="$(find  desherborator_description)/urdf/desherborator.link.xacro"/>
+        
+        <joint  name="base_joint"  type="fixed">
+                <parent  link="base_link"/>
+                <child  link="Chassis"  />
+                <origin  xyz="0  0  0.05"  rpy="0  0  0"/>
+        </joint>
+        
+        <joint  name="mat_attached"  type="fixed">
+                <parent  link="Chassis"/>
+                <child  link="Mat"  />
+                <origin  xyz="-0.3  0  0.2"  rpy="0  0  0"/>
+        </joint>
+        
+        <joint  name="joint_1"  type="continuous">
+                <parent  link="Chassis"/>
+                <child  link="RoueD"  />
+                <origin  xyz="-0.2  -0.15  0.1"  rpy="0  0  0"/>
+                <axis  xyz="0  1  0"/>
         </joint>
 
-        <joint name="mat_attached" type="fixed">
-                <parent link="Chassis"/>
-                <child link="Mat"/>
-                <origin xyz="-0.3 0 0.2" rpy="0 0 0"/>
+        <joint  name="joint_2"  type="continuous">
+                <parent  link="Chassis"/>
+                <child  link="RoueG"  />
+                <origin  xyz="-0.2  0.15  0.1"  rpy="0  0  0"/>
+                <axis  xyz="0  1  0"/>
         </joint>
 
-        <joint name="joint_1" type="continuous">
-                <parent link="Chassis"/>
-                <child link="RoueD"/>
-                <origin xyz="-0.2 -0.15 0.1" rpy="0 0 0"/>
-                <axis  xyz="0 1 0"/>
+        <joint  name="joint_3"  type="fixed">
+                <parent  link="Chassis"/>
+                <child  link="RoueF"  />
+                <origin  xyz="-0.3  0  0"  rpy="0  0  0"/>
         </joint>
-
-        <joint name="joint_2" type="continuous">
-                <parent link="Chassis"/>
-                <child link="RoueG"/>
-                <origin xyz="-0.2 0.15 0.1" rpy="0 0 0"/>
-                <axis  xyz="0 1 0"/>
+        
+        <joint  name="joint_4"  type="continuous">
+                <parent  link="Chassis"/>
+                <child  link="BrasC1"  />
+                <origin  xyz="0.01  -0.15  0"  rpy="0  0  0"/>
+                <axis  xyz="0  0  1"/>
         </joint>
-
-        <joint name="joint_3" type="fixed">
-                <parent link="Chassis"/>
-                <child link="RoueF"/>
-                <origin xyz="-0.3 0 0" rpy="0 0 0"/>
-        </joint>
-
-        <joint name="joint_4" type="continuous">
-                <parent link="Chassis"/>
-                <child link="BrasC1"/>
-                <origin xyz="0.01 -0.15 0" rpy="0 0 0"/>
-                <axis  xyz="0 0 1"/>
-        </joint>
-
-        <joint name="joint_5" type="prismatic">
-                <parent link="Chassis"/>
-                <child link="BrasC1"/>
-                <origin xyz="0 0 0.01" rpy="0 0 0"/>
-                <axis  xyz="0 0 1"/>
+        
+        <joint  name="joint_5"  type="prismatic">
+                <parent  link="Chassis"/>
+                <child  link="BrasC1"  />
+                <origin  xyz="0  0  0.01"  rpy="0  0  0"/>
+                <axis  xyz="0  0  1"/>
                 <limit  lower="0"  upper="0.10"  effort="10"  velocity="1"/>
         </joint>
 
-        <joint name="joint_6" type="fixed">
-                <parent link="BrasC1"/>
-                <child link="BrasS1"/>
-                <origin xyz="0 0 0.10" rpy="0 0 0"/>
+        <joint  name="joint_6"  type="fixed">
+                <parent  link="BrasC1"/>
+                <child  link="BrasS1"  />
+                <origin  xyz="0  0  0.10"  rpy="0  0  0"/>
+        </joint>
+        
+        <joint  name="joint_7"  type="fixed">
+                <parent  link="BrasS1"/>
+                <child  link="BrasC2"  />
+                <origin  xyz="0  0  0"  rpy="0  0  0"/>
         </joint>
 
-        <joint name="joint_7" type="fixed">
-                <parent link="BrasS1"/>
-                <child link="BrasC2"/>
-                <origin xyz="0 0 0" rpy="0  0  0"/>
+        <joint  name="joint_8"  type="fixed">
+                <parent  link="BrasC2"/>
+                <child  link="BrasS2"  />
+                <origin  xyz="0  0.3  0"  rpy="0  0  0"/>
         </joint>
+        
+        <joint  name="joint_9"  type="fixed">
+                <parent  link="BrasS2"/>
+                <child  link="BrasC3"  />
+                <origin  xyz="0  0  0"  rpy="0  0  0"/>
+        </joint>
+        
 
-        <joint name="joint_8" type="fixed">
-                <parent link="BrasC2"/>
-                <child link="BrasS2"/>
-                <origin xyz="0 0.3 0" rpy="0 0 0"/>
-        </joint>
-
-        <joint name="joint_9" type="fixed">
-                <parent link="BrasS2"/>
-                <child link="BrasC3"/>
-                <origin xyz="0 0 0" rpy="0 0 0"/>
-        </joint>
 </robot>

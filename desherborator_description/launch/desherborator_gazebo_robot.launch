@@ -4,7 +4,7 @@
     <!--Create the URDF file from xacro files-->
     <arg name="model" default="$(find desherborator_description)/urdf/desherborator.urdf.xacro"/>
     <param name="desherborator_description" command="$(find xacro)/xacro --inorder $(arg model)" />
-    <param name="desherborator_description" textfile="$(find desherborator_description)/urdf/desherborator.urdf"/>
+    <param name="desherborator_description" textfile="$(find desherborator_description)/urdf/test.urdf"/>
     
     <!--Spawn a robot into Gazebo-->
     <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" args="-urdf -model desherborator -param desherborator_description"/>
