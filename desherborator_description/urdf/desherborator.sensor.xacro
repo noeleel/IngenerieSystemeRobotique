@@ -45,7 +45,7 @@
             </noise>
         </ray>
         <plugin name="gazebo_ros_lds_lfcd_controller" filename="libgazebo_ros_laser.so">
-            <topicName>scan</topicName>
+            <topicName>laser_scan</topicName>
             <!-- ENTER FRAME NAME -->
             <frameName>LIDAR</frameName>
         </plugin>
@@ -169,7 +169,7 @@
             </noise>
         </ray>
         <plugin name="gazebo_ros_lds_lfcd_controller" filename="libgazebo_ros_laser.so">
-            <topicName>scan_laser</topicName>
+            <topicName>laser</topicName>
             <!-- ENTER FRAME NAME -->
             <frameName>laser</frameName>
         </plugin>
