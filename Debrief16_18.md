@@ -16,7 +16,6 @@
 
     Ne pas se donner des tâches trop complexes.
 
-    Rémi, est-ce que tu lis vraiment nos rapports? 
 **Points positifs de cette semaine**
     
     Garder des tâches simples pour le PO
