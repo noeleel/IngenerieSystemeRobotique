@@ -1,22 +1,16 @@
 <?xml version="1.0" ?>
 <launch>
-
-  <arg name="model" default="$(find desherborator_description)/urdf/desherborator.urdf.xacro"/>
-  <param name="desherborator_description" command="$(find xacro)/xacro --inorder $(arg model)" />
+  <param name="robot_description" textfile="$(find desherborator_description)/urdf/desherborator.urdf"/>
   <param name="desherborator_description" textfile="$(find desherborator_description)/urdf/desherborator.urdf"/>
+
+  <arg name="model" default="$(find desherborator_description)/urdf/desherborator.urdf"/>
+  <arg name="gui" default="true" />
+  <arg name="rvizconfig" default="$(find desherborator_description)/config/display.rviz" />
+
     
-  <include file="$(find desherborator_description)/launch/desherborator_gazebo_robot.launch"/>
+  <node pkg="joint_state_publisher" type="joint_state_publisher" name="joint_state_publisher" output="screen"/>
 
-  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find desherborator_description)/config/display.rviz"/>
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" output="screen"/>
 
-  <node pkg="joint_state_publisher" type="joint_state_publisher" name="joint_state_publisher" output="screen">
-    <param name="use_gui" value="true" />
-    <remap from="robot_description" to="desherborator_description" />
-  </node>
 
-  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" output="screen">
-    <param name="publish_frequency" type="double" value="50.0" />
-    <remap from="robot_description" to="desherborator_description" />
-  </node>
-
-</launch>
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true" /></launch>

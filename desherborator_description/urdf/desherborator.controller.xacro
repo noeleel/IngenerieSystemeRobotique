@@ -9,16 +9,16 @@
       <odometrySource>world</odometrySource>
       <publishOdomTF>true</publishOdomTF>
       <!-- ENTER BASE LINK NAME -->
-      <robotBaseFrame>Chassis</robotBaseFrame>
+      <robotBaseFrame>base_link</robotBaseFrame>
       <publishWheelTF>true</publishWheelTF>
       <publishTf>true</publishTf>
       <publishWheelJointState>true</publishWheelJointState>
       <legacyMode>true</legacyMode>
       <updateRate>30</updateRate>
       <!-- ENTER LEFT JOINT NAME -->
-      <leftJoint>joint_2</leftJoint>
+      <leftJoint>joint_chassis_to_roueG</leftJoint>
       <!-- ENTER RIGHT JOINT NAME -->
-      <rightJoint>joint_1</rightJoint>
+      <rightJoint>joint_chassis_to_roueD</rightJoint>
       <wheelSeparation>0.31</wheelSeparation>
       <wheelDiameter>0.1</wheelDiameter>
       <wheelAcceleration>0.1</wheelAcceleration>

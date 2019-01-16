@@ -4,71 +4,70 @@
         <joint name="base_joint" type="fixed">
                 <parent link="base_link"/>
                 <child link="Chassis"/>
-                <origin xyz="0 0 0.05" rpy="0 0 0"/>
+                <origin xyz="0 0 0.2" rpy="0 0 0"/>
         </joint>
 
         <joint name="mat_attached" type="fixed">
                 <parent link="Chassis"/>
                 <child link="Mat"/>
-                <origin xyz="-0.3 0 0.2" rpy="0 0 0"/>
+                <origin xyz="0.1 0 0.3" rpy="0 0 0"/>
         </joint>
 
-        <joint name="joint_1" type="continuous">
+        <joint name="joint_chassis_to_roueD" type="continuous">
                 <parent link="Chassis"/>
                 <child link="RoueD"/>
-                <origin xyz="-0.2 -0.15 0.1" rpy="0 0 0"/>
+                <origin xyz="0.1 -0.15 0.1" rpy="0 0 0"/>
                 <axis  xyz="0 1 0"/>
         </joint>
 
-        <joint name="joint_2" type="continuous">
+        <joint name="joint_chassis_to_roueG" type="continuous">
                 <parent link="Chassis"/>
                 <child link="RoueG"/>
-                <origin xyz="-0.2 0.15 0.1" rpy="0 0 0"/>
+                <origin xyz="0.1 0.15 0.1" rpy="0 0 0"/>
                 <axis  xyz="0 1 0"/>
         </joint>
 
-        <joint name="joint_3" type="fixed">
+        <joint name="joint_chassis_to_roueF" type="fixed">
                 <parent link="Chassis"/>
                 <child link="RoueF"/>
-                <origin xyz="-0.3 0 0" rpy="0 0 0"/>
+                <origin xyz="-0.10 0 0" rpy="0 0 0"/>
         </joint>
 
-        <joint name="joint_4" type="continuous">
+        <joint name="joint_chassis_to_dummy" type="fixed">
                 <parent link="Chassis"/>
                 <child link="BrasC1dummy"/>
-                <origin xyz="0.01 -0.15 0" rpy="0 0 0"/>
+                <origin xyz="0.19 -0.06 0.2" rpy="0 0 0"/>
                 <axis  xyz="0 0 1"/>
         </joint>
 
-        <joint name="joint_5" type="prismatic">
+        <joint name="joint_dummy_to_rotating_bras" type="fixed">
                 <parent link="BrasC1dummy"/>
                 <child link="BrasC1"/>
-                <origin xyz="0 0 0.01" rpy="0 0 0"/>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
                 <axis  xyz="0 0 1"/>
-                <limit  lower="0"  upper="0.10"  effort="10"  velocity="1"/>
         </joint>
 
-        <joint name="joint_6" type="fixed">
+        <joint name="joint_rotating_bras_to_brasS" type="fixed">
                 <parent link="BrasC1"/>
                 <child link="BrasS1"/>
-                <origin xyz="0 0 0.10" rpy="0 0 0"/>
+                <origin xyz="0 0 0.11" rpy="0 0 0"/>
         </joint>
 
-        <joint name="joint_7" type="fixed">
+        <joint name="joint_brasS_to_brasC" type="fixed">
                 <parent link="BrasS1"/>
                 <child link="BrasC2"/>
-                <origin xyz="0 0 0" rpy="0  0  0"/>
+                <origin xyz="0 0.15 0" rpy="0  0  0"/>
         </joint>
 
-        <joint name="joint_8" type="fixed">
+        <joint name="joint_brasC_to_brasS" type="fixed">
                 <parent link="BrasC2"/>
                 <child link="BrasS2"/>
-                <origin xyz="0 0.3 0" rpy="0 0 0"/>
+                <origin xyz="0 0.15 0" rpy="0 0 0"/>
         </joint>
 
-        <joint name="joint_9" type="fixed">
+        <joint name="end_joint" type="fixed">
                 <parent link="BrasS2"/>
                 <child link="BrasC3"/>
-                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <origin xyz="0 0 -0.05" rpy="0 0 0"/>
         </joint>
 </robot>

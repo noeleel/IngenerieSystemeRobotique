@@ -14,7 +14,7 @@
     <kd>10.0</kd>
     <minDepth>0.001</minDepth>
     <maxVel>0.1</maxVel>
-    <material>Gazebo/FlatBlack</material>
+    <material>Gazebo/Purple</material>
   </gazebo>
   <gazebo reference="RoueD">
     <mu1>1.2</mu1>
@@ -23,7 +23,7 @@
     <kd>10.0</kd>
     <minDepth>0.001</minDepth>
     <maxVel>0.1</maxVel>
-    <material>Gazebo/FlatBlack</material>
+    <material>Gazebo/Purple</material>
   </gazebo>
   <gazebo reference="RoueF">
     <mu1>0.1</mu1>
@@ -32,45 +32,44 @@
     <kd>100.0</kd>
     <minDepth>0.001</minDepth>
     <maxVel>1.0</maxVel>
-    <material>Gazebo/FlatBlack</material>
+    <material>Gazebo/Purple</material>
   </gazebo>
   <gazebo reference="Mat">
-    <material>Gazebo/FlatBlack</material>
+    <material>Gazebo/Orange</material>
   </gazebo>
   <gazebo reference="BrasC1">
-    <material>Gazebo/FlatBlack</material>
+    <material>Gazebo/Turquoise</material>
   </gazebo>
   <gazebo reference="BrasC2">
-    <material>Gazebo/FlatBlack</material>
+    <material>Gazebo/Turquoise</material>
   </gazebo>
   <gazebo reference="BrasC3">
-    <material>Gazebo/FlatBlack</material>
+    <material>Gazebo/Turquoise</material>
   </gazebo>
   <gazebo reference="BrasS1">
-    <material>Gazebo/FlatBlack</material>
+    <material>Gazebo/Turquoise</material>
   </gazebo>
   <gazebo reference="BrasS2">
-    <material>Gazebo/FlatBlack</material>
+    <material>Gazebo/Turquoise</material>
   </gazebo>
   <!-- Base Chassis -->
   <link name="base_link"/>
   <!-- Link Chassis -->
   <link name="Chassis">
     <collision>
-      <origin rpy="0 0 0" xyz="0 0 0.05"/>
+      <origin rpy="0 0 0" xyz="0 0 .1"/>
       <geometry>
         <box size="0.4 0.3 0.2"/>
       </geometry>
     </collision>
     <visual>
-      <origin rpy="0 0 0" xyz="0 0 0.05"/>
+      <origin rpy="0 0 0" xyz="0 0 .1"/>
       <geometry>
         <box size="0.4 0.3 0.2"/>
       </geometry>
     </visual>
     <inertial>
-      <origin rpy="0 0 0" xyz="0 0 0.05"/>
-      <mass value="1"/>
+      <mass value="2.0"/>
       <inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.01"/>
     </inertial>
   </link>
@@ -90,7 +89,6 @@
       </geometry>
     </visual>
     <inertial>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
       <mass value="0.01"/>
       <inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.01"/>
     </inertial>
@@ -110,8 +108,7 @@
       </geometry>
     </visual>
     <inertial>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <mass value="0.01"/>
+      <mass value="0.3"/>
       <inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.01"/>
     </inertial>
   </link>
@@ -130,15 +127,14 @@
       </geometry>
     </visual>
     <inertial>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <mass value="0.01"/>
+      <mass value="0.3"/>
       <inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.01"/>
     </inertial>
   </link>
   <!-- link Mat -->
   <link name="Mat">
     <collision>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <origin rpy="0 0 0" xyz="0.1 0 0.3"/>
       <geometry>
         <cylinder length="0.2" radius="0.01"/>
       </geometry>
@@ -150,8 +146,7 @@
       </geometry>
     </visual>
     <inertial>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <mass value="0.01"/>
+      <mass value="0.1"/>
       <inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.01"/>
     </inertial>
   </link>
@@ -171,8 +166,7 @@
       </geometry>
     </visual>
     <inertial>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <mass value="0.01"/>
+      <mass value="0.1"/>
       <inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.01"/>
     </inertial>
   </link>
@@ -181,19 +175,18 @@
   <!-- link Bras Cylindre 2 -->
   <link name="BrasC2">
     <collision>
-      <origin rpy="0 1.5707 1.5707" xyz="0 0 0"/>
+      <origin rpy="0 1.57295 1.57295" xyz="0 0 0"/>
       <geometry>
         <cylinder length="0.3" radius="0.01"/>
       </geometry>
     </collision>
     <visual>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <origin rpy="0 1.57295 1.57295" xyz="0 0 0"/>
       <geometry>
         <cylinder length="0.3" radius="0.01"/>
       </geometry>
     </visual>
     <inertial>
-      <origin rpy="0 1.5707 1.5707" xyz="0 0 0"/>
       <mass value="0.01"/>
       <inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.01"/>
     </inertial>
@@ -201,19 +194,18 @@
   <!-- link Bras Cylindre 3 -->
   <link name="BrasC3">
     <collision>
-      <origin rpy="0 3.14 0" xyz="0 0 0"/>
+      <origin rpy="0 3.1459 0" xyz="0 0 0"/>
       <geometry>
         <cylinder length="0.1" radius="0.01"/>
       </geometry>
     </collision>
     <visual>
-      <origin rpy="0 3.14 0" xyz="0 0 0"/>
+      <origin rpy="0 3.1459 0" xyz="0 0 0"/>
       <geometry>
         <cylinder length="0.1" radius="0.01"/>
       </geometry>
     </visual>
     <inertial>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
       <mass value="0.01"/>
       <inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.01"/>
     </inertial>
@@ -233,7 +225,6 @@
       </geometry>
     </visual>
     <inertial>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
       <mass value="0.01"/>
       <inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.01"/>
     </inertial>
@@ -253,7 +244,6 @@
       </geometry>
     </visual>
     <inertial>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
       <mass value="0.01"/>
       <inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.01"/>
     </inertial>
@@ -261,62 +251,61 @@
   <joint name="base_joint" type="fixed">
     <parent link="base_link"/>
     <child link="Chassis"/>
-    <origin rpy="0 0 0" xyz="0 0 0.05"/>
+    <origin rpy="0 0 0" xyz="0 0 0.2"/>
   </joint>
   <joint name="mat_attached" type="fixed">
     <parent link="Chassis"/>
     <child link="Mat"/>
-    <origin rpy="0 0 0" xyz="-0.3 0 0.2"/>
+    <origin rpy="0 0 0" xyz="0.1 0 0.3"/>
   </joint>
-  <joint name="joint_1" type="continuous">
+  <joint name="joint_chassis_to_roueD" type="continuous">
     <parent link="Chassis"/>
     <child link="RoueD"/>
-    <origin rpy="0 0 0" xyz="-0.2 -0.15 0.1"/>
+    <origin rpy="0 0 0" xyz="0.1 -0.15 0.1"/>
     <axis xyz="0 1 0"/>
   </joint>
-  <joint name="joint_2" type="continuous">
+  <joint name="joint_chassis_to_roueG" type="continuous">
     <parent link="Chassis"/>
     <child link="RoueG"/>
-    <origin rpy="0 0 0" xyz="-0.2 0.15 0.1"/>
+    <origin rpy="0 0 0" xyz="0.1 0.15 0.1"/>
     <axis xyz="0 1 0"/>
   </joint>
-  <joint name="joint_3" type="fixed">
+  <joint name="joint_chassis_to_roueF" type="fixed">
     <parent link="Chassis"/>
     <child link="RoueF"/>
-    <origin rpy="0 0 0" xyz="-0.3 0 0"/>
+    <origin rpy="0 0 0" xyz="-0.10 0 0"/>
   </joint>
-  <joint name="joint_4" type="continuous">
+  <joint name="joint_chassis_to_dummy" type="fixed">
     <parent link="Chassis"/>
     <child link="BrasC1dummy"/>
-    <origin rpy="0 0 0" xyz="0.01 -0.15 0"/>
+    <origin rpy="0 0 0" xyz="0.19 -0.06 0.2"/>
     <axis xyz="0 0 1"/>
   </joint>
-  <joint name="joint_5" type="prismatic">
+  <joint name="joint_dummy_to_rotating_bras" type="fixed">
     <parent link="BrasC1dummy"/>
     <child link="BrasC1"/>
-    <origin rpy="0 0 0" xyz="0 0 0.01"/>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
     <axis xyz="0 0 1"/>
-    <limit effort="10" lower="0" upper="0.10" velocity="1"/>
   </joint>
-  <joint name="joint_6" type="fixed">
+  <joint name="joint_rotating_bras_to_brasS" type="fixed">
     <parent link="BrasC1"/>
     <child link="BrasS1"/>
-    <origin rpy="0 0 0" xyz="0 0 0.10"/>
+    <origin rpy="0 0 0" xyz="0 0 0.11"/>
   </joint>
-  <joint name="joint_7" type="fixed">
+  <joint name="joint_brasS_to_brasC" type="fixed">
     <parent link="BrasS1"/>
     <child link="BrasC2"/>
-    <origin rpy="0  0  0" xyz="0 0 0"/>
+    <origin rpy="0  0  0" xyz="0 0.15 0"/>
   </joint>
-  <joint name="joint_8" type="fixed">
+  <joint name="joint_brasC_to_brasS" type="fixed">
     <parent link="BrasC2"/>
     <child link="BrasS2"/>
-    <origin rpy="0 0 0" xyz="0 0.3 0"/>
+    <origin rpy="0 0 0" xyz="0 0.15 0"/>
   </joint>
-  <joint name="joint_9" type="fixed">
+  <joint name="end_joint" type="fixed">
     <parent link="BrasS2"/>
     <child link="BrasC3"/>
-    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <origin rpy="0 0 0" xyz="0 0 -0.05"/>
   </joint>
   <link name="LIDAR">
     <visual>
@@ -331,23 +320,23 @@
     </inertial>
   </link>
   <joint name="lidar_joint" type="fixed">
-    <parent link="Chassis"/>
+    <parent link="Mat"/>
     <child link="LIDAR"/>
-    <origin rpy="0 0 0" xyz="0.15 0 0.23"/>
+    <origin rpy="0 0 0" xyz="0 0 0.075"/>
   </joint>
   <gazebo reference="LIDAR">
     <material>Gazebo/Orange</material>
     <sensor name="lidar_sensor" type="ray">
       <pose>0 0 0 0 0 0</pose>
       <visualize>true</visualize>
-      <update_rate>5</update_rate>
+      <update_rate>40</update_rate>
       <ray>
         <scan>
           <horizontal>
             <samples>720</samples>
             <resolution>1</resolution>
             <min_angle>0.0</min_angle>
-            <max_angle>6.28319</max_angle>
+            <max_angle>6.2</max_angle>
           </horizontal>
         </scan>
         <range>
@@ -362,7 +351,7 @@
         </noise>
       </ray>
       <plugin filename="libgazebo_ros_laser.so" name="gazebo_ros_lds_lfcd_controller">
-        <topicName>scan</topicName>
+        <topicName>/laser_scan</topicName>
         <!-- ENTER FRAME NAME -->
         <frameName>LIDAR</frameName>
       </plugin>
@@ -370,8 +359,8 @@
   </gazebo>
   <joint name="camera_joint" type="fixed">
     <parent link="Chassis"/>
-    <axis xyz="0 0 0"/>
-    <origin rpy="0 0 0" xyz="0.3 0 0.1"/>
+    <axis xyz="0 1 0"/>
+    <origin rpy="0 1.57295 0" xyz="0.2 0 0.1"/>
     <child link="Camera"/>
   </joint>
   <!-- Camera -->
@@ -436,7 +425,7 @@
   </gazebo>
   <link name="LASER">
     <visual>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <origin rpy="0 0 0" xyz="0 0 -0.1"/>
       <geometry>
         <cylinder length="0.15" radius="0.025"/>
       </geometry>
@@ -447,9 +436,9 @@
     </inertial>
   </link>
   <joint name="laser_joint" type="fixed">
-    <parent link="Chassis"/>
+    <parent link="BrasC3"/>
     <child link="LASER"/>
-    <origin rpy="0 0 0" xyz="0.15 0 0.23"/>
+    <origin rpy="0 1.57295 0" xyz="0 0 0"/>
   </joint>
   <gazebo reference="LASER">
     <material>Gazebo/Blue</material>
@@ -460,7 +449,7 @@
       <ray>
         <scan>
           <horizontal>
-            <samples>720</samples>
+            <samples>10</samples>
             <resolution>1</resolution>
             <min_angle>0.0</min_angle>
             <max_angle>0.1</max_angle>
@@ -478,9 +467,9 @@
         </noise>
       </ray>
       <plugin filename="libgazebo_ros_laser.so" name="gazebo_ros_lds_lfcd_controller">
-        <topicName>scan_laser</topicName>
+        <topicName>/laser</topicName>
         <!-- ENTER FRAME NAME -->
-        <frameName>laser</frameName>
+        <frameName>LASER</frameName>
       </plugin>
     </sensor>
   </gazebo>
@@ -492,16 +481,16 @@
       <odometrySource>world</odometrySource>
       <publishOdomTF>true</publishOdomTF>
       <!-- ENTER BASE LINK NAME -->
-      <robotBaseFrame>Chassis</robotBaseFrame>
+      <robotBaseFrame>base_link</robotBaseFrame>
       <publishWheelTF>true</publishWheelTF>
       <publishTf>true</publishTf>
       <publishWheelJointState>true</publishWheelJointState>
       <legacyMode>true</legacyMode>
       <updateRate>30</updateRate>
       <!-- ENTER LEFT JOINT NAME -->
-      <leftJoint>joint_2</leftJoint>
+      <leftJoint>joint_chassis_to_roueG</leftJoint>
       <!-- ENTER RIGHT JOINT NAME -->
-      <rightJoint>joint_1</rightJoint>
+      <rightJoint>joint_chassis_to_roueD</rightJoint>
       <wheelSeparation>0.31</wheelSeparation>
       <wheelDiameter>0.1</wheelDiameter>
       <wheelAcceleration>0.1</wheelAcceleration>

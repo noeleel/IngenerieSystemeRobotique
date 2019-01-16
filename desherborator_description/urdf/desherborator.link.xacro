@@ -6,27 +6,20 @@
   <!-- Link Chassis -->
   <link name="Chassis">
     <collision>
-      <origin xyz="0 0 0.05" rpy="0 0 0"/>
+      <origin xyz="0 0 .1" rpy="0 0 0"/>
       <geometry>
         <box size="0.4 0.3 0.2"/>
       </geometry>
     </collision>
 
     <visual>
-      <origin xyz="0 0 0.05" rpy="0 0 0"/>
+      <origin xyz="0 0 .1" rpy="0 0 0"/>
       <geometry>
         <box size="0.4 0.3 0.2"/>
       </geometry>
     </visual>
 
-    <inertial>
-      <origin xyz="0 0 0.05" rpy="0 0 0"/>
-      <mass value="1"/>
-      <inertia
-        ixx="0.01" ixy="0.0" ixz="0.0"
-        iyy="0.01" iyz="0.0"
-        izz="0.01"/>
-    </inertial>
+    <xacro:default_inertial mass="2.0"/>
   </link>
 
   <!-- Link Roue -->
@@ -46,14 +39,7 @@
       </geometry>
     </visual>
 
-    <inertial>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
-      <mass value="0.01"/>
-      <inertia
-        ixx="0.01" ixy="0.0" ixz="0.0"
-        iyy="0.01" iyz="0.0"
-        izz="0.01"/>
-    </inertial>
+    <xacro:default_inertial mass="0.01"/>
   </link>
 
   <!-- link Roue Gauche -->
@@ -72,14 +58,7 @@
       </geometry>
     </visual>
 
-    <inertial>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
-      <mass value="0.01"/>
-      <inertia
-        ixx="0.01" ixy="0.0" ixz="0.0"
-        iyy="0.01" iyz="0.0"
-        izz="0.01"/>
-    </inertial>
+    <xacro:default_inertial mass="0.3"/>
   </link>
 
   <!-- link Roue Droite -->
@@ -98,20 +77,13 @@
       </geometry>
     </visual>
 
-    <inertial>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
-      <mass value="0.01"/>
-      <inertia
-        ixx="0.01" ixy="0.0" ixz="0.0"
-        iyy="0.01" iyz="0.0"
-        izz="0.01"/>
-    </inertial>
+    <xacro:default_inertial mass="0.3"/>
   </link>
 
   <!-- link Mat -->
   <link name="Mat">
     <collision>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <origin xyz="0.1 0 0.3" rpy="0 0 0"/>
       <geometry>
         <cylinder radius="0.01" length="0.2"/>
       </geometry>
@@ -124,14 +96,7 @@
       </geometry>
     </visual>
 
-    <inertial>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
-      <mass value="0.01"/>
-      <inertia
-        ixx="0.01" ixy="0.0" ixz="0.0"
-        iyy="0.01" iyz="0.0"
-        izz="0.01"/>
-    </inertial>
+    <xacro:default_inertial mass="0.1"/>
   </link>
 
   <!-- link Bras -->
@@ -151,14 +116,7 @@
     </geometry>
   </visual>
 
-  <inertial>
-    <origin xyz="0 0 0" rpy="0 0 0"/>
-    <mass value="0.01"/>
-    <inertia
-      ixx="0.01" ixy="0.0" ixz="0.0"
-      iyy="0.01" iyz="0.0"
-      izz="0.01"/>
-  </inertial>
+    <xacro:default_inertial mass="0.1"/>
   </link>
 
   <!-- link Dummy Bras Cylindre 1 -->
@@ -167,53 +125,39 @@
   <!-- link Bras Cylindre 2 -->
   <link name="BrasC2">
     <collision>
-      <origin xyz="0 0 0" rpy="0 1.5707 1.5707"/>
+      <origin xyz="0 0 0" rpy="0 ${PI/2} ${PI/2}"/>
       <geometry>
         <cylinder radius="0.01" length="0.3"/>
       </geometry>
     </collision>
 
     <visual>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <origin xyz="0 0 0" rpy="0 ${PI/2} ${PI/2}"/>
       <geometry>
         <cylinder radius="0.01" length="0.3"/>
       </geometry>
     </visual>
 
-    <inertial>
-      <origin xyz="0 0 0" rpy="0 1.5707 1.5707"/>
-      <mass value="0.01"/>
-      <inertia
-        ixx="0.01" ixy="0.0" ixz="0.0"
-        iyy="0.01" iyz="0.0"
-        izz="0.01"/>
-    </inertial>
+    <xacro:default_inertial mass="0.01"/>
   </link>
 
   <!-- link Bras Cylindre 3 -->
   <link name="BrasC3">
     <collision>
-      <origin xyz="0 0 0" rpy="0 3.14 0"/>
+      <origin xyz="0 0 0" rpy="0 ${PI} 0"/>
       <geometry>
         <cylinder radius="0.01" length="0.1"/>
       </geometry>
     </collision>
 
     <visual>
-      <origin xyz="0 0 0" rpy="0 3.14 0"/>
+      <origin xyz="0 0 0" rpy="0 ${PI} 0"/>
       <geometry>
         <cylinder radius="0.01" length="0.1"/>
       </geometry>
     </visual>
 
-    <inertial>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
-      <mass value="0.01"/>
-      <inertia
-        ixx="0.01" ixy="0.0" ixz="0.0"
-        iyy="0.01" iyz="0.0"
-        izz="0.01"/>
-    </inertial>
+    <xacro:default_inertial mass="0.01"/>
   </link>
 
   <!-- link Bras Sphere 1 -->
@@ -232,14 +176,7 @@
       </geometry>
     </visual>
 
-    <inertial>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
-      <mass value="0.01"/>
-      <inertia
-        ixx="0.01" ixy="0.0" ixz="0.0"
-        iyy="0.01" iyz="0.0"
-        izz="0.01"/>
-    </inertial>
+    <xacro:default_inertial mass="0.01"/>
   </link>
 
   <!-- link Bras Sphere 2 -->
@@ -258,13 +195,6 @@
       </geometry>
     </visual>
 
-    <inertial>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
-      <mass value="0.01"/>
-      <inertia
-        ixx="0.01" ixy="0.0" ixz="0.0"
-        iyy="0.01" iyz="0.0"
-        izz="0.01"/>
-    </inertial>
+    <xacro:default_inertial mass="0.01"/>
   </link>
 </robot>

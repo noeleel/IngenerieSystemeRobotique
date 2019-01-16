@@ -15,7 +15,7 @@
     <kd>10.0</kd>
     <minDepth>0.001</minDepth>
     <maxVel>0.1</maxVel>
-    <material>Gazebo/FlatBlack</material>
+    <material>Gazebo/Purple</material>
   </gazebo>
 
   <gazebo reference="RoueD">
@@ -25,7 +25,7 @@
     <kd>10.0</kd>
     <minDepth>0.001</minDepth>
     <maxVel>0.1</maxVel>
-    <material>Gazebo/FlatBlack</material>
+    <material>Gazebo/Purple</material>
   </gazebo>
 
   <gazebo reference="RoueF">
@@ -35,30 +35,30 @@
     <kd>100.0</kd>
     <minDepth>0.001</minDepth>
     <maxVel>1.0</maxVel>
-    <material>Gazebo/FlatBlack</material>
+    <material>Gazebo/Purple</material>
   </gazebo>
 
   <gazebo reference="Mat">
-    <material>Gazebo/FlatBlack</material>
+    <material>Gazebo/Orange</material>
   </gazebo>
 
   <gazebo reference="BrasC1">
-    <material>Gazebo/FlatBlack</material>
+    <material>Gazebo/Turquoise</material>
   </gazebo>
 
   <gazebo reference="BrasC2">
-    <material>Gazebo/FlatBlack</material>
+    <material>Gazebo/Turquoise</material>
   </gazebo>
 
   <gazebo reference="BrasC3">
-    <material>Gazebo/FlatBlack</material>
+    <material>Gazebo/Turquoise</material>
   </gazebo>
 
   <gazebo reference="BrasS1">
-    <material>Gazebo/FlatBlack</material>
+    <material>Gazebo/Turquoise</material>
   </gazebo>
 
   <gazebo reference="BrasS2">
-    <material>Gazebo/FlatBlack</material>
+    <material>Gazebo/Turquoise</material>
   </gazebo>
 </robot>
