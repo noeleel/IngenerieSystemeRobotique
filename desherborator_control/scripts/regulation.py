@@ -27,12 +27,12 @@ def callback(data):
 
 def regulation():
 
-    pub = rospy.Publisher("Commande",Twist)
+    pub = rospy.Publisher("cmd_vel",Twist)
     rospy.init_node("regulation",anonymous=True)
     rate = rospy.Rate(10)
 
 
-    rospy.Subscriber("DistAngle", String,callback)
+    rospy.Subscriber("DistAngle", Pose2D,callback)
     
     while not rospy.is_shutdown():
         global Commande

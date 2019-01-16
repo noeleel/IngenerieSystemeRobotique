@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<launch>
+    
+    <arg name="mapping"     default="false"/>
+    <arg name="move_base"   default="true"/>
+    <arg name="map"         default="blank_map"/>
+    <arg name="amcl"        default="false"/>
+    
+    <node name="map_server" pkg="map_server" type="map_server" args="$(find ensta_nav)/maps/$(arg map).yaml" unless="$(arg mapping)">
+        <param name="frame_id" value="map"/>
+    </node>
+    
+	<!--<include file="$(find ensta_nav)/launch/include/gmapping.launch.xml" if="$(arg mapping)"/-->
+    
+    <include file="$(find ensta_nav)/launch/include/amcl.launch.xml" if="$(arg amcl)"/>
+
+    <include file="$(find ensta_nav)/launch/include/move_base.launch" if="$(arg move_base)"/>
+
+</launch>

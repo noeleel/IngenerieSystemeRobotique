@@ -2,7 +2,7 @@
 <sdf version='1.6'>
   <model name='unit_cylinder'>
     <link name='link_4_clone_0'>
-      <pose frame=''>7.29659282225 8.75538064514 0.01 0 0 -0</pose>
+      <pose frame=''>3.69072083161 1.82750664642 0.01 0 0 -0</pose>
       <inertial>
         <mass>1</mass>
         <inertia>
@@ -22,7 +22,7 @@
         <pose frame=''>0 0 0.01 0 -0 0</pose>
         <geometry>
           <cylinder>
-            <radius>0.0369270018725</radius>
+            <radius>0.0336227205236</radius>
             <length>0.1</length>
           </cylinder>
         </geometry>
@@ -45,7 +45,7 @@
       </visual>
     </link>
     <link name='link_4_clone_1'>
-      <pose frame=''>3.83698873066 1.70523909281 0.01 0 0 -0</pose>
+      <pose frame=''>0.587715540223 1.35861029471 0.01 0 0 -0</pose>
       <inertial>
         <mass>1</mass>
         <inertia>
@@ -65,7 +65,7 @@
         <pose frame=''>0 0 0.01 0 -0 0</pose>
         <geometry>
           <cylinder>
-            <radius>0.0383556366987</radius>
+            <radius>0.065160050799</radius>
             <length>0.1</length>
           </cylinder>
         </geometry>
@@ -88,7 +88,7 @@
       </visual>
     </link>
     <link name='link_4_clone_2'>
-      <pose frame=''>2.99840682729 1.02390491531 0.01 0 0 -0</pose>
+      <pose frame=''>7.13067967683 3.5917343421 0.01 0 0 -0</pose>
       <inertial>
         <mass>1</mass>
         <inertia>
@@ -108,7 +108,7 @@
         <pose frame=''>0 0 0.01 0 -0 0</pose>
         <geometry>
           <cylinder>
-            <radius>0.0659820720101</radius>
+            <radius>0.0591569052211</radius>
             <length>0.1</length>
           </cylinder>
         </geometry>
@@ -131,7 +131,7 @@
       </visual>
     </link>
     <link name='link_4_clone_3'>
-      <pose frame=''>0.897877584825 7.66231602736 0.01 0 0 -0</pose>
+      <pose frame=''>1.96830879194 4.69235405135 0.01 0 0 -0</pose>
       <inertial>
         <mass>1</mass>
         <inertia>
@@ -151,7 +151,7 @@
         <pose frame=''>0 0 0.01 0 -0 0</pose>
         <geometry>
           <cylinder>
-            <radius>0.0284531465753</radius>
+            <radius>0.0115358512133</radius>
             <length>0.1</length>
           </cylinder>
         </geometry>
@@ -174,7 +174,7 @@
       </visual>
     </link>
     <link name='link_4_clone_4'>
-      <pose frame=''>6.4286197652 3.47019595439 0.01 0 0 -0</pose>
+      <pose frame=''>0.549613615249 3.98480351896 0.01 0 0 -0</pose>
       <inertial>
         <mass>1</mass>
         <inertia>
@@ -194,7 +194,7 @@
         <pose frame=''>0 0 0.01 0 -0 0</pose>
         <geometry>
           <cylinder>
-            <radius>0.0426967404585</radius>
+            <radius>0.055146546861</radius>
             <length>0.1</length>
           </cylinder>
         </geometry>
@@ -217,7 +217,7 @@
       </visual>
     </link>
     <link name='link_4_clone_5'>
-      <pose frame=''>3.67924896941 1.8567194672 0.01 0 0 -0</pose>
+      <pose frame=''>4.02953765746 5.8339105966 0.01 0 0 -0</pose>
       <inertial>
         <mass>1</mass>
         <inertia>
@@ -237,7 +237,7 @@
         <pose frame=''>0 0 0.01 0 -0 0</pose>
         <geometry>
           <cylinder>
-            <radius>0.0682640180448</radius>
+            <radius>0.0398843465933</radius>
             <length>0.1</length>
           </cylinder>
         </geometry>
