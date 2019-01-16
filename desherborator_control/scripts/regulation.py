@@ -2,7 +2,7 @@
 import rospy
 import numpy
 
-from std_msgs.msg import String
+from std_msgs.msg import Bool
 from geometry_msgs.msg import Twist
 from geometry_msgs.msg import Pose2D
 
@@ -27,23 +27,33 @@ def callback(data):
 
 def regulation():
 
-    pub = rospy.Publisher("Commande",Twist)
+    pub  = rospy.Publisher("cmd_vel",Twist)
+    goal = rospy.Publisher("OnZone",Bool)
     rospy.init_node("regulation",anonymous=True)
     rate = rospy.Rate(10)
 
 
-    rospy.Subscriber("DistAngle", String,callback)
+    rospy.Subscriber("DistAngle", Pose2D,callback)
+
     
     while not rospy.is_shutdown():
         global Commande
+        stop = 0
 
         if Distance == 0:
             Commande.linear.x  = 0
             Commande.angular.z = 1
         else:
-            Commande.linear.x  = kp_d * (Distance - offset) + kd_d * Commande.linear.x
-            Commande.angular.z = kp_a * Angle + kd_a * Commande.angular.z
+            if Distance <= offset :
+                Commande.linear.x  = 0
+                Commande.angular.z = kp_a * Angle + kd_a * Commande.angular.z
+                if Commande.angular.z <= 0.05:
+                    stop = 1
+            else:
+                Commande.linear.x  = kp_d * (Distance - offset) + kd_d * Commande.linear.x
+                Commande.angular.z = kp_a * Angle + kd_a * Commande.angular.z
 
+        goal.publish(stop)
         pub.publish(Commande)
         rate.sleep()
 
