@@ -6,31 +6,7 @@
   <xacro:include filename="$(find desherborator_description)/urdf/desherborator.link.xacro"/>
   <xacro:include filename="$(find desherborator_description)/urdf/desherborator.joint.xacro"/>
   <xacro:include filename="$(find desherborator_description)/urdf/desherborator.sensor.xacro"/>
+  <xacro:include filename="$(find desherborator_description)/urdf/desherborator.controller.xacro"/>
 
-  <gazebo>
-    <plugin name="wheels_controller" filename="libgazebo_ros_diff_drive.so">
-      <commandTopic>cmd_vel</commandTopic>
-      <odometryTopic>odom</odometryTopic>
-      <odometryFrame>odom</odometryFrame>
-      <odometrySource>world</odometrySource>
-      <publishOdomTF>true</publishOdomTF>
-      <!-- ENTER BASE LINK NAME -->
-      <robotBaseFrame>base_link</robotBaseFrame>
-      <publishWheelTF>true</publishWheelTF>
-      <publishTf>true</publishTf>
-      <publishWheelJointState>true</publishWheelJointState>
-      <legacyMode>true</legacyMode>
-      <updateRate>30</updateRate>
-      <!-- ENTER LEFT JOINT NAME -->
-      <leftJoint>RoueG</leftJoint>
-      <!-- ENTER RIGHT JOINT NAME -->
-      <rightJoint>RoueD</rightJoint>
-      <wheelSeparation>0.31</wheelSeparation>
-      <wheelDiameter>0.1</wheelDiameter>
-      <wheelAcceleration>0.1</wheelAcceleration>
-      <wheelTorque>10</wheelTorque>
-      <rosDebugLevel>na</rosDebugLevel>
-    </plugin>
-  </gazebo>
 
 </robot>

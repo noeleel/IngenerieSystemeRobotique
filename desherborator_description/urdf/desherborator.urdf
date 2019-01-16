@@ -318,6 +318,172 @@
     <child link="BrasC3"/>
     <origin rpy="0 0 0" xyz="0 0 0"/>
   </joint>
+  <link name="LIDAR">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <cylinder length="0.04" radius="0.03"/>
+      </geometry>
+    </visual>
+    <inertial>
+      <mass value="0.1"/>
+      <inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.01"/>
+    </inertial>
+  </link>
+  <joint name="lidar_joint" type="fixed">
+    <parent link="Chassis"/>
+    <child link="LIDAR"/>
+    <origin rpy="0 0 0" xyz="0.15 0 0.23"/>
+  </joint>
+  <gazebo reference="LIDAR">
+    <material>Gazebo/Orange</material>
+    <sensor name="lidar_sensor" type="ray">
+      <pose>0 0 0 0 0 0</pose>
+      <visualize>true</visualize>
+      <update_rate>5</update_rate>
+      <ray>
+        <scan>
+          <horizontal>
+            <samples>720</samples>
+            <resolution>1</resolution>
+            <min_angle>0.0</min_angle>
+            <max_angle>6.28319</max_angle>
+          </horizontal>
+        </scan>
+        <range>
+          <min>0.120</min>
+          <max>12</max>
+          <resolution>0.015</resolution>
+        </range>
+        <noise>
+          <type>gaussian</type>
+          <mean>0.0</mean>
+          <stddev>0.01</stddev>
+        </noise>
+      </ray>
+      <plugin filename="libgazebo_ros_laser.so" name="gazebo_ros_lds_lfcd_controller">
+        <topicName>scan</topicName>
+        <!-- ENTER FRAME NAME -->
+        <frameName>LIDAR</frameName>
+      </plugin>
+    </sensor>
+  </gazebo>
+  <joint name="camera_joint" type="fixed">
+    <parent link="Chassis"/>
+    <axis xyz="0 0 0"/>
+    <origin rpy="0 0 0" xyz="0.3 0 0.1"/>
+    <child link="Camera"/>
+  </joint>
+  <!-- Camera -->
+  <link name="Camera">
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <box size="0.1 0.1 0.1"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <box size="0.1 0.1 0.1"/>
+      </geometry>
+      <material name="red"/>
+    </visual>
+    <inertial>
+      <mass value="1e-5"/>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6"/>
+    </inertial>
+  </link>
+  <gazebo reference="Camera">
+    <material>Gazebo/Green</material>
+    <sensor name="main_camera" type="camera">
+      <update_rate>30.0</update_rate>
+      <camera name="head">
+        <horizontal_fov>1.3962634</horizontal_fov>
+        <image>
+          <width>1280</width>
+          <height>720</height>
+          <format>R8G8B8</format>
+        </image>
+        <clip>
+          <near>0.02</near>
+          <far>300</far>
+        </clip>
+        <noise>
+          <type>gaussian</type>
+          <mean>0.0</mean>
+          <stddev>0.007</stddev>
+        </noise>
+      </camera>
+      <plugin filename="libgazebo_ros_camera.so" name="camera_controller">
+        <topicName>camera</topicName>
+        <frameName>Camera</frameName>
+        <alwaysOn>true</alwaysOn>
+        <updateRate>0.0</updateRate>
+        <cameraName>main_camera</cameraName>
+        <imageTopicName>image_raw</imageTopicName>
+        <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+        <frameName>camera</frameName>
+        <hackBaseline>0.07</hackBaseline>
+        <distortionK1>0.0</distortionK1>
+        <distortionK2>0.0</distortionK2>
+        <distortionK3>0.0</distortionK3>
+        <distortionT1>0.0</distortionT1>
+        <distortionT2>0.0</distortionT2>
+      </plugin>
+    </sensor>
+  </gazebo>
+  <link name="LASER">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <cylinder length="0.15" radius="0.025"/>
+      </geometry>
+    </visual>
+    <inertial>
+      <mass value="0.1"/>
+      <inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.01"/>
+    </inertial>
+  </link>
+  <joint name="laser_joint" type="fixed">
+    <parent link="Chassis"/>
+    <child link="LASER"/>
+    <origin rpy="0 0 0" xyz="0.15 0 0.23"/>
+  </joint>
+  <gazebo reference="LASER">
+    <material>Gazebo/Blue</material>
+    <sensor name="laser_sensor" type="ray">
+      <pose>0 0 0 0 0 0</pose>
+      <visualize>true</visualize>
+      <update_rate>5</update_rate>
+      <ray>
+        <scan>
+          <horizontal>
+            <samples>720</samples>
+            <resolution>1</resolution>
+            <min_angle>0.0</min_angle>
+            <max_angle>0.1</max_angle>
+          </horizontal>
+        </scan>
+        <range>
+          <min>0.120</min>
+          <max>12</max>
+          <resolution>0.015</resolution>
+        </range>
+        <noise>
+          <type>gaussian</type>
+          <mean>0.0</mean>
+          <stddev>0.01</stddev>
+        </noise>
+      </ray>
+      <plugin filename="libgazebo_ros_laser.so" name="gazebo_ros_lds_lfcd_controller">
+        <topicName>scan_laser</topicName>
+        <!-- ENTER FRAME NAME -->
+        <frameName>laser</frameName>
+      </plugin>
+    </sensor>
+  </gazebo>
   <gazebo>
     <plugin filename="libgazebo_ros_diff_drive.so" name="wheels_controller">
       <commandTopic>cmd_vel</commandTopic>
@@ -326,16 +492,16 @@
       <odometrySource>world</odometrySource>
       <publishOdomTF>true</publishOdomTF>
       <!-- ENTER BASE LINK NAME -->
-      <robotBaseFrame>base_link</robotBaseFrame>
+      <robotBaseFrame>Chassis</robotBaseFrame>
       <publishWheelTF>true</publishWheelTF>
       <publishTf>true</publishTf>
       <publishWheelJointState>true</publishWheelJointState>
       <legacyMode>true</legacyMode>
       <updateRate>30</updateRate>
       <!-- ENTER LEFT JOINT NAME -->
-      <leftJoint>RoueG</leftJoint>
+      <leftJoint>joint_2</leftJoint>
       <!-- ENTER RIGHT JOINT NAME -->
-      <rightJoint>RoueD</rightJoint>
+      <rightJoint>joint_1</rightJoint>
       <wheelSeparation>0.31</wheelSeparation>
       <wheelDiameter>0.1</wheelDiameter>
       <wheelAcceleration>0.1</wheelAcceleration>

@@ -3,7 +3,7 @@
     Author : Elodie NOELE -->
 
 
-<robot name="desherborator_materials" xmlns:xacro="http://ros.org/wiki/xacro">
+<robot name="desherborator" xmlns:xacro="http://ros.org/wiki/xacro">
   <gazebo reference="Chassis">
     <material>Gazebo/DarkGrey</material>
   </gazebo>

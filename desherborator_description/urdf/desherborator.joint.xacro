@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
-<robot name="desherborator_joints" xmlns:xacro="http://ros.org/wiki/xacro">
+<robot name="desherborator" xmlns:xacro="http://ros.org/wiki/xacro">
         <joint name="base_joint" type="fixed">
                 <parent link="base_link"/>
                 <child link="Chassis"/>
