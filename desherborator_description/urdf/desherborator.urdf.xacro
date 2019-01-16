@@ -3,9 +3,9 @@
 <robot name="desherborator" xmlns:xacro="http://ros.org/wiki/xacro">
   
   <xacro:include filename="$(find desherborator_description)/urdf/desherborator.joint.xacro"/>
-  <!--<xacro:include filename="$(find desherborator_description)/urdf/desherborator.link.xacro"/>
-  <xacro:include filename="$(find desherborator_description)/urdf/desherborator.materials.xacro"/>
+  <xacro:include filename="$(find desherborator_description)/urdf/desherborator.link.xacro"/>
   <xacro:include filename="$(find desherborator_description)/urdf/desherborator.sensor.xacro"/>
-    -->  
-
+  <xacro:include filename="$(find desherborator_description)/urdf/desherborator.materials.xacro"/>
+  <xacro:include filename="$(find desherborator_description)/urdf/desherborator.parameters.xacro"/>
+    
 </robot>
