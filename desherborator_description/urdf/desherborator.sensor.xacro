@@ -3,7 +3,7 @@
 <robot name="desherborator_sensor" xmlns:xacro="http://ros.org/wiki/xacro">
     <xacro:macro name="LIDAR">
         <gazebo reference="LIDAR">
-            <material name= "black"/>
+            <material>Gazebo/Black</material>
             <sensor type="ray" name="lidar_sensor">
             <pose>0 0 0 0 0 0</pose>
             <visualize>true</visualize>
@@ -56,46 +56,46 @@
 
     <xacro:macro name="Camera">
         <gazebo reference="Camera">
-            <material name= "red"/>
+            <material>Gazebo/Red</material>
             <sensor type="camera" name="main_camera">
-            <update_rate>30.0</update_rate>
-            <camera name="head">
-                <horizontal_fov>1.3962634</horizontal_fov>
-                <image>
-                <width>1280</width>
-                <height>720</height>
-                <format>R8G8B8</format>
-                </image>
-                <clip>
-                <near>0.02</near>
-                <far>300</far>
-                </clip>
-                <noise>
-                <type>gaussian</type>
-                <mean>0.0</mean>
-                <stddev>0.007</stddev>
-                </noise>
-            </camera>
-            <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
-                <alwaysOn>true</alwaysOn>
-                <updateRate>0.0</updateRate>
-                <cameraName>main_camera</cameraName>
-                <imageTopicName>image_raw</imageTopicName>
-                <cameraInfoTopicName>camera_info</cameraInfoTopicName>
-                <frameName>camera</frameName>
-                <hackBaseline>0.07</hackBaseline>
-                <distortionK1>0.0</distortionK1>
-                <distortionK2>0.0</distortionK2>
-                <distortionK3>0.0</distortionK3>
-                <distortionT1>0.0</distortionT1>
-                <distortionT2>0.0</distortionT2>
-            </plugin>
+                <update_rate>30.0</update_rate>
+                <camera name="head">
+                    <horizontal_fov>1.3962634</horizontal_fov>
+                    <image>
+                    <width>1280</width>
+                    <height>720</height>
+                    <format>R8G8B8</format>
+                    </image>
+                    <clip>
+                    <near>0.02</near>
+                    <far>300</far>
+                    </clip>
+                    <noise>
+                    <type>gaussian</type>
+                    <mean>0.0</mean>
+                    <stddev>0.007</stddev>
+                    </noise>
+                </camera>
+                <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+                    <alwaysOn>true</alwaysOn>
+                    <updateRate>0.0</updateRate>
+                    <cameraName>main_camera</cameraName>
+                    <imageTopicName>image_raw</imageTopicName>
+                    <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+                    <frameName>camera</frameName>
+                    <hackBaseline>0.07</hackBaseline>
+                    <distortionK1>0.0</distortionK1>
+                    <distortionK2>0.0</distortionK2>
+                    <distortionK3>0.0</distortionK3>
+                    <distortionT1>0.0</distortionT1>
+                    <distortionT2>0.0</distortionT2>
+                </plugin>
             </sensor>
         </gazebo>
         
         <joint name="camera_joint" type="fixed">
             <parent link="chassis"/>
-            <axis xyz="0 1 0" />
+            <axis xyz="10 10 10" />
             <origin xyz="${chassisWidth} 0 ${chassisHeight/2}" rpy="0 0 0"/>
             <child link="camera_link"/>
         </joint>
@@ -127,7 +127,7 @@
 
     <xacro:macro name="LASER">
         <gazebo reference="LASER">
-            <material name= "blue"/>
+            <material>Gazebo/Blue</material>
             <sensor type="ray" name="laser_sensor">
             <pose>0 0 0 0 0 0</pose>
             <visualize>true</visualize>

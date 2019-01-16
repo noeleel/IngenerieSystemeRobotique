@@ -2,36 +2,63 @@
 <!-- Here are defined the materials used for defining the robot in the simulation
     Author : Elodie NOELE -->
 
+
 <robot name="desherborator_materials" xmlns:xacro="http://ros.org/wiki/xacro">
-  <material name="black">
-    <color rgba="0.0 0.0 0.0 1.0"/>
-  </material>
+  <gazebo reference="Chassis">
+    <material>Gazebo/DarkGrey</material>
+  </gazebo>
 
-  <material name="blue">
-    <color rgba="0.0 0.0 0.8 1.0"/>
-  </material>
+  <gazebo reference="RoueG">
+    <mu1>1.2</mu1>
+    <mu2>1.2</mu2>
+    <kp>500000.0</kp>
+    <kd>10.0</kd>
+    <minDepth>0.001</minDepth>
+    <maxVel>0.1</maxVel>
+    <material>Gazebo/FlatBlack</material>
+  </gazebo>
 
-  <material name="green">
-    <color rgba="0.0 0.8 0.0 1.0"/>
-  </material>
+  <gazebo reference="RoueD">
+    <mu1>1.2</mu1>
+    <mu2>1.2</mu2>
+    <kp>500000.0</kp>
+    <kd>10.0</kd>
+    <minDepth>0.001</minDepth>
+    <maxVel>0.1</maxVel>
+    <material>Gazebo/FlatBlack</material>
+  </gazebo>
 
-  <material name="gray">
-    <color rgba="0.7 0.7 0.7 1.0"/>
-  </material>
+  <gazebo reference="RoueF">
+    <mu1>0.1</mu1>
+    <mu2>0.1</mu2>
+    <kp>1000000.0</kp>
+    <kd>100.0</kd>
+    <minDepth>0.001</minDepth>
+    <maxVel>1.0</maxVel>
+    <material>Gazebo/FlatBlack</material>
+  </gazebo>
 
-  <material name="darkgray">
-    <color rgba="0.3 0.3 0.3 1.0"/>
-  </material>
+  <gazebo reference="Mat">
+    <material>Gazebo/FlatBlack</material>
+  </gazebo>
 
-  <material name="red">
-    <color rgba="0.8 0.0 0.0 1.0"/>
-  </material>
+  <gazebo reference="BrasC1">
+    <material>Gazebo/FlatBlack</material>
+  </gazebo>
 
-  <material name="white">
-    <color rgba="1.0 1.0 1.0 1.0"/>
-  </material>
+  <gazebo reference="BrasC2">
+    <material>Gazebo/FlatBlack</material>
+  </gazebo>
 
-  <material name="yellow">
-    <color rgba="0.8 0.8 0.0 1.0"/>
-  </material>
+  <gazebo reference="BrasC3">
+    <material>Gazebo/FlatBlack</material>
+  </gazebo>
+
+  <gazebo reference="BrasS1">
+    <material>Gazebo/FlatBlack</material>
+  </gazebo>
+
+  <gazebo reference="BrasS2">
+    <material>Gazebo/FlatBlack</material>
+  </gazebo>
 </robot>

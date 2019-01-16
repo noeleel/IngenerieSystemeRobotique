@@ -35,13 +35,13 @@
 
         <joint name="joint_4" type="continuous">
                 <parent link="Chassis"/>
-                <child link="BrasC1"/>
+                <child link="BrasC1dummy"/>
                 <origin xyz="0.01 -0.15 0" rpy="0 0 0"/>
                 <axis  xyz="0 0 1"/>
         </joint>
 
         <joint name="joint_5" type="prismatic">
-                <parent link="Chassis"/>
+                <parent link="BrasC1dummy"/>
                 <child link="BrasC1"/>
                 <origin xyz="0 0 0.01" rpy="0 0 0"/>
                 <axis  xyz="0 0 1"/>

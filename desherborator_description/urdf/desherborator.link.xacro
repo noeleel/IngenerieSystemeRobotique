@@ -17,7 +17,6 @@
     <geometry>
       <box size="0.4 0.3 0.2"/>
     </geometry>
-    <material name="black"/>
   </visual>
 
   <inertial>
@@ -45,7 +44,6 @@
     <geometry>
       <sphere radius="0.05"/>
     </geometry>
-    <material name="black"/>
   </visual>
 
   <inertial>
@@ -72,7 +70,6 @@
     <geometry>
       <cylinder radius="0.15" length="0.1"/>
     </geometry>
-    <material name="black"/>
   </visual>
 
   <inertial>
@@ -99,7 +96,6 @@
     <geometry>
       <cylinder radius="0.15" length="0.1"/>
     </geometry>
-    <material name="black"/>
   </visual>
 
   <inertial>
@@ -126,7 +122,6 @@
     <geometry>
       <cylinder radius="0.01" length="0.2"/>
     </geometry>
-    <material name="black"/>
   </visual>
 
   <inertial>
@@ -154,7 +149,6 @@
     <geometry>
       <cylinder radius="0.01" length="0.25"/>
     </geometry>
-    <material name="black"/>
   </visual>
 
   <inertial>
@@ -167,6 +161,9 @@
   </inertial>
   </link>
 
+  <!-- link Dummy Bras Cylindre 1 -->
+  <link name="BrasC1dummy"/>
+  
   <!-- link Bras Cylindre 2 -->
   <link name="BrasC2">
   <collision>
@@ -181,7 +178,6 @@
     <geometry>
       <cylinder radius="0.01" length="0.3"/>
     </geometry>
-    <material name="black"/>
   </visual>
 
   <inertial>
@@ -208,7 +204,6 @@
     <geometry>
       <cylinder radius="0.01" length="0.1"/>
     </geometry>
-    <material name="black"/>
   </visual>
 
   <inertial>
@@ -235,7 +230,6 @@
     <geometry>
       <sphere radius="0.02"/>
     </geometry>
-    <material name="black"/>
   </visual>
 
   <inertial>
@@ -262,7 +256,6 @@
     <geometry>
       <sphere radius="0.02"/>
     </geometry>
-    <material name="black"/>
   </visual>
 
   <inertial>

@@ -4,6 +4,260 @@
 <!-- |    EDITING THIS FILE BY HAND IS NOT RECOMMENDED                                 | -->
 <!-- =================================================================================== -->
 <robot name="desherborator" xmlns:xacro="http://ros.org/wiki/xacro">
+  <gazebo reference="Chassis">
+    <material>Gazebo/DarkGrey</material>
+  </gazebo>
+  <gazebo reference="RoueG">
+    <mu1>1.2</mu1>
+    <mu2>1.2</mu2>
+    <kp>500000.0</kp>
+    <kd>10.0</kd>
+    <minDepth>0.001</minDepth>
+    <maxVel>0.1</maxVel>
+    <material>Gazebo/FlatBlack</material>
+  </gazebo>
+  <gazebo reference="RoueD">
+    <mu1>1.2</mu1>
+    <mu2>1.2</mu2>
+    <kp>500000.0</kp>
+    <kd>10.0</kd>
+    <minDepth>0.001</minDepth>
+    <maxVel>0.1</maxVel>
+    <material>Gazebo/FlatBlack</material>
+  </gazebo>
+  <gazebo reference="RoueF">
+    <mu1>0.1</mu1>
+    <mu2>0.1</mu2>
+    <kp>1000000.0</kp>
+    <kd>100.0</kd>
+    <minDepth>0.001</minDepth>
+    <maxVel>1.0</maxVel>
+    <material>Gazebo/FlatBlack</material>
+  </gazebo>
+  <gazebo reference="Mat">
+    <material>Gazebo/FlatBlack</material>
+  </gazebo>
+  <gazebo reference="BrasC1">
+    <material>Gazebo/FlatBlack</material>
+  </gazebo>
+  <gazebo reference="BrasC2">
+    <material>Gazebo/FlatBlack</material>
+  </gazebo>
+  <gazebo reference="BrasC3">
+    <material>Gazebo/FlatBlack</material>
+  </gazebo>
+  <gazebo reference="BrasS1">
+    <material>Gazebo/FlatBlack</material>
+  </gazebo>
+  <gazebo reference="BrasS2">
+    <material>Gazebo/FlatBlack</material>
+  </gazebo>
+  <!-- Base Chassis -->
+  <link name="base_link"/>
+  <!-- Link Chassis -->
+  <link name="Chassis">
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0.05"/>
+      <geometry>
+        <box size="0.4 0.3 0.2"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0.05"/>
+      <geometry>
+        <box size="0.4 0.3 0.2"/>
+      </geometry>
+    </visual>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0.05"/>
+      <mass value="1"/>
+      <inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.01"/>
+    </inertial>
+  </link>
+  <!-- Link Roue -->
+  <!-- link Roue Folle -->
+  <link name="RoueF">
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <sphere radius="0.05"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <sphere radius="0.05"/>
+      </geometry>
+    </visual>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0.01"/>
+      <inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.01"/>
+    </inertial>
+  </link>
+  <!-- link Roue Gauche -->
+  <link name="RoueG">
+    <collision>
+      <origin rpy="0 1.5707 1.5707" xyz="0 0 0"/>
+      <geometry>
+        <cylinder length="0.1" radius="0.15"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin rpy="0 1.5707 1.5707" xyz="0 0 0"/>
+      <geometry>
+        <cylinder length="0.1" radius="0.15"/>
+      </geometry>
+    </visual>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0.01"/>
+      <inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.01"/>
+    </inertial>
+  </link>
+  <!-- link Roue Droite -->
+  <link name="RoueD">
+    <collision>
+      <origin rpy="0 1.5707 1.5707" xyz="0 0 0"/>
+      <geometry>
+        <cylinder length="0.1" radius="0.15"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin rpy="0 1.5707 1.5707" xyz="0 0 0"/>
+      <geometry>
+        <cylinder length="0.1" radius="0.15"/>
+      </geometry>
+    </visual>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0.01"/>
+      <inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.01"/>
+    </inertial>
+  </link>
+  <!-- link Mat -->
+  <link name="Mat">
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <cylinder length="0.2" radius="0.01"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <cylinder length="0.2" radius="0.01"/>
+      </geometry>
+    </visual>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0.01"/>
+      <inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.01"/>
+    </inertial>
+  </link>
+  <!-- link Bras -->
+  <!-- link Bras Cylindre 1 -->
+  <link name="BrasC1">
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <cylinder length="0.25" radius="0.01"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <cylinder length="0.25" radius="0.01"/>
+      </geometry>
+    </visual>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0.01"/>
+      <inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.01"/>
+    </inertial>
+  </link>
+  <!-- link Dummy Bras Cylindre 1 -->
+  <link name="BrasC1dummy"/>
+  <!-- link Bras Cylindre 2 -->
+  <link name="BrasC2">
+    <collision>
+      <origin rpy="0 1.5707 1.5707" xyz="0 0 0"/>
+      <geometry>
+        <cylinder length="0.3" radius="0.01"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <cylinder length="0.3" radius="0.01"/>
+      </geometry>
+    </visual>
+    <inertial>
+      <origin rpy="0 1.5707 1.5707" xyz="0 0 0"/>
+      <mass value="0.01"/>
+      <inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.01"/>
+    </inertial>
+  </link>
+  <!-- link Bras Cylindre 3 -->
+  <link name="BrasC3">
+    <collision>
+      <origin rpy="0 3.14 0" xyz="0 0 0"/>
+      <geometry>
+        <cylinder length="0.1" radius="0.01"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin rpy="0 3.14 0" xyz="0 0 0"/>
+      <geometry>
+        <cylinder length="0.1" radius="0.01"/>
+      </geometry>
+    </visual>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0.01"/>
+      <inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.01"/>
+    </inertial>
+  </link>
+  <!-- link Bras Sphere 1 -->
+  <link name="BrasS1">
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <sphere radius="0.02"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <sphere radius="0.02"/>
+      </geometry>
+    </visual>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0.01"/>
+      <inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.01"/>
+    </inertial>
+  </link>
+  <!-- link Bras Sphere 2 -->
+  <link name="BrasS2">
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <sphere radius="0.02"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <sphere radius="0.02"/>
+      </geometry>
+    </visual>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0.01"/>
+      <inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.01"/>
+    </inertial>
+  </link>
   <joint name="base_joint" type="fixed">
     <parent link="base_link"/>
     <child link="Chassis"/>
@@ -33,12 +287,12 @@
   </joint>
   <joint name="joint_4" type="continuous">
     <parent link="Chassis"/>
-    <child link="BrasC1"/>
+    <child link="BrasC1dummy"/>
     <origin rpy="0 0 0" xyz="0.01 -0.15 0"/>
     <axis xyz="0 0 1"/>
   </joint>
   <joint name="joint_5" type="prismatic">
-    <parent link="Chassis"/>
+    <parent link="BrasC1dummy"/>
     <child link="BrasC1"/>
     <origin rpy="0 0 0" xyz="0 0 0.01"/>
     <axis xyz="0 0 1"/>
@@ -64,243 +318,30 @@
     <child link="BrasC3"/>
     <origin rpy="0 0 0" xyz="0 0 0"/>
   </joint>
-  <!-- Base Chassis -->
-  <link name="base_link"/>
-  <!-- Link Chassis -->
-  <link name="Chassis">
-    <collision>
-      <origin rpy="0 0 0" xyz="0 0 0.05"/>
-      <geometry>
-        <box size="0.4 0.3 0.2"/>
-      </geometry>
-    </collision>
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0.05"/>
-      <geometry>
-        <box size="0.4 0.3 0.2"/>
-      </geometry>
-      <material name="black"/>
-    </visual>
-    <inertial>
-      <origin rpy="0 0 0" xyz="0 0 0.05"/>
-      <mass value="1"/>
-      <inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.01"/>
-    </inertial>
-  </link>
-  <!-- Link Roue -->
-  <!-- link Roue Folle -->
-  <link name="RoueF">
-    <collision>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <sphere radius="0.05"/>
-      </geometry>
-    </collision>
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <sphere radius="0.05"/>
-      </geometry>
-      <material name="black"/>
-    </visual>
-    <inertial>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <mass value="0.01"/>
-      <inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.01"/>
-    </inertial>
-  </link>
-  <!-- link Roue Gauche -->
-  <link name="RoueG">
-    <collision>
-      <origin rpy="0 1.5707 1.5707" xyz="0 0 0"/>
-      <geometry>
-        <cylinder length="0.1" radius="0.15"/>
-      </geometry>
-    </collision>
-    <visual>
-      <origin rpy="0 1.5707 1.5707" xyz="0 0 0"/>
-      <geometry>
-        <cylinder length="0.1" radius="0.15"/>
-      </geometry>
-      <material name="black"/>
-    </visual>
-    <inertial>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <mass value="0.01"/>
-      <inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.01"/>
-    </inertial>
-  </link>
-  <!-- link Roue Droite -->
-  <link name="RoueD">
-    <collision>
-      <origin rpy="0 1.5707 1.5707" xyz="0 0 0"/>
-      <geometry>
-        <cylinder length="0.1" radius="0.15"/>
-      </geometry>
-    </collision>
-    <visual>
-      <origin rpy="0 1.5707 1.5707" xyz="0 0 0"/>
-      <geometry>
-        <cylinder length="0.1" radius="0.15"/>
-      </geometry>
-      <material name="black"/>
-    </visual>
-    <inertial>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <mass value="0.01"/>
-      <inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.01"/>
-    </inertial>
-  </link>
-  <!-- link Mat -->
-  <link name="Mat">
-    <collision>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <cylinder length="0.2" radius="0.01"/>
-      </geometry>
-    </collision>
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <cylinder length="0.2" radius="0.01"/>
-      </geometry>
-      <material name="black"/>
-    </visual>
-    <inertial>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <mass value="0.01"/>
-      <inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.01"/>
-    </inertial>
-  </link>
-  <!-- link Bras -->
-  <!-- link Bras Cylindre 1 -->
-  <link name="BrasC1">
-    <collision>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <cylinder length="0.25" radius="0.01"/>
-      </geometry>
-    </collision>
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <cylinder length="0.25" radius="0.01"/>
-      </geometry>
-      <material name="black"/>
-    </visual>
-    <inertial>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <mass value="0.01"/>
-      <inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.01"/>
-    </inertial>
-  </link>
-  <!-- link Bras Cylindre 2 -->
-  <link name="BrasC2">
-    <collision>
-      <origin rpy="0 1.5707 1.5707" xyz="0 0 0"/>
-      <geometry>
-        <cylinder length="0.3" radius="0.01"/>
-      </geometry>
-    </collision>
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <cylinder length="0.3" radius="0.01"/>
-      </geometry>
-      <material name="black"/>
-    </visual>
-    <inertial>
-      <origin rpy="0 1.5707 1.5707" xyz="0 0 0"/>
-      <mass value="0.01"/>
-      <inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.01"/>
-    </inertial>
-  </link>
-  <!-- link Bras Cylindre 3 -->
-  <link name="BrasC3">
-    <collision>
-      <origin rpy="0 3.14 0" xyz="0 0 0"/>
-      <geometry>
-        <cylinder length="0.1" radius="0.01"/>
-      </geometry>
-    </collision>
-    <visual>
-      <origin rpy="0 3.14 0" xyz="0 0 0"/>
-      <geometry>
-        <cylinder length="0.1" radius="0.01"/>
-      </geometry>
-      <material name="black"/>
-    </visual>
-    <inertial>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <mass value="0.01"/>
-      <inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.01"/>
-    </inertial>
-  </link>
-  <!-- link Bras Sphere 1 -->
-  <link name="BrasS1">
-    <collision>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <sphere radius="0.02"/>
-      </geometry>
-    </collision>
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <sphere radius="0.02"/>
-      </geometry>
-      <material name="black"/>
-    </visual>
-    <inertial>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <mass value="0.01"/>
-      <inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.01"/>
-    </inertial>
-  </link>
-  <!-- link Bras Sphere 2 -->
-  <link name="BrasS2">
-    <collision>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <sphere radius="0.02"/>
-      </geometry>
-    </collision>
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <sphere radius="0.02"/>
-      </geometry>
-      <material name="black"/>
-    </visual>
-    <inertial>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <mass value="0.01"/>
-      <inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.01"/>
-    </inertial>
-  </link>
-  <material name="black">
-    <color rgba="0.0 0.0 0.0 1.0"/>
-  </material>
-  <material name="blue">
-    <color rgba="0.0 0.0 0.8 1.0"/>
-  </material>
-  <material name="green">
-    <color rgba="0.0 0.8 0.0 1.0"/>
-  </material>
-  <material name="gray">
-    <color rgba="0.7 0.7 0.7 1.0"/>
-  </material>
-  <material name="darkgray">
-    <color rgba="0.3 0.3 0.3 1.0"/>
-  </material>
-  <material name="red">
-    <color rgba="0.8 0.0 0.0 1.0"/>
-  </material>
-  <material name="white">
-    <color rgba="1.0 1.0 1.0 1.0"/>
-  </material>
-  <material name="yellow">
-    <color rgba="0.8 0.8 0.0 1.0"/>
-  </material>
+  <gazebo>
+    <plugin filename="libgazebo_ros_diff_drive.so" name="wheels_controller">
+      <commandTopic>cmd_vel</commandTopic>
+      <odometryTopic>odom</odometryTopic>
+      <odometryFrame>odom</odometryFrame>
+      <odometrySource>world</odometrySource>
+      <publishOdomTF>true</publishOdomTF>
+      <!-- ENTER BASE LINK NAME -->
+      <robotBaseFrame>base_link</robotBaseFrame>
+      <publishWheelTF>true</publishWheelTF>
+      <publishTf>true</publishTf>
+      <publishWheelJointState>true</publishWheelJointState>
+      <legacyMode>true</legacyMode>
+      <updateRate>30</updateRate>
+      <!-- ENTER LEFT JOINT NAME -->
+      <leftJoint>RoueG</leftJoint>
+      <!-- ENTER RIGHT JOINT NAME -->
+      <rightJoint>RoueD</rightJoint>
+      <wheelSeparation>0.31</wheelSeparation>
+      <wheelDiameter>0.1</wheelDiameter>
+      <wheelAcceleration>0.1</wheelAcceleration>
+      <wheelTorque>10</wheelTorque>
+      <rosDebugLevel>na</rosDebugLevel>
+    </plugin>
+  </gazebo>
 </robot>
 
