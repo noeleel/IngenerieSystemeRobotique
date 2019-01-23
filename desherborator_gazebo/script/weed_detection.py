@@ -204,8 +204,8 @@ if __name__ == '__main__':
         pose_robot.orientation.z = bobot._oriz
         pub1.publish(pose_robot)
 
-        xrbt = bobot.posex + np.cos(bobot.oriz) * 0.26
-        yrbt = bobot.posey + np.sin(bobot.oriz) * 0.26
+        xrbt = bobot._posex + np.cos(bobot._oriz) * 0.26
+        yrbt = bobot._posey + np.sin(bobot._oriz) * 0.26
 
         # Changement detat des weeds
         if bool_weed_red:
