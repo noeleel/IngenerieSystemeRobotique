@@ -49,7 +49,6 @@ def pose_callback(data):
 
     global theta
     theta = data.orientation.z
-    kp_d = data.x
 
 
 
