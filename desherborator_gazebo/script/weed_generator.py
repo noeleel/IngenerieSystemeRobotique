@@ -18,8 +18,12 @@ def generer_herbe (fichier, nombre_plantes=1):
         
         
         for i in range(nombre_plantes):
+            x_herbe = str(uniform(-4.5,4.5))
+            y_herbe = str(uniform(-4.5,4.5))
+            
+
             f.write("    <link name='link_4_clone_"+str(i)+"'>\n")
-            f.write("      <pose frame=''>"+str(uniform(-4.5,4.5))+" "+str(uniform(-4.5,4.5))+" 0.01 0 0 -0</pose>\n")
+            f.write("      <pose frame=''>"+str(x_herbe)+" "+str(y_herbe)+" 0.01 0 0 -0</pose>\n")
             f.write("      <inertial>\n")
             f.write("        <mass>1</mass>\n")
             f.write("        <inertia>\n")
@@ -75,5 +79,5 @@ if __name__ == '__main__':
     #PATH = "/home/haddock/5.8/src/desherborator_gazebo/model/"
     PATH = sys.argv[1]
     fichier_modele = PATH+"model.sdf"
-    nombre_plantes = 6
+    nombre_plantes = 20
     generer_herbe(fichier_modele, nombre_plantes)
