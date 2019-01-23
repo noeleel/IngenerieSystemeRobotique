@@ -6,7 +6,8 @@
   <xacro:include filename="$(find desherborator_description)/urdf/desherborator.link.xacro"/>
   <xacro:include filename="$(find desherborator_description)/urdf/desherborator.joint.xacro"/>
   <xacro:include filename="$(find desherborator_description)/urdf/desherborator.sensor.xacro"/>
-  <xacro:include filename="$(find desherborator_description)/urdf/desherborator.controller.xacro"/>
+  <xacro:include filename="$(find desherborator_description)/urdf/desherborator.wheels_controller.xacro"/>
+  <xacro:include filename="$(find desherborator_description)/urdf/desherborator.arm_controller.xacro"/>
 
 
 </robot>
