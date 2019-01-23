@@ -17,7 +17,7 @@
         <child link="LIDAR"/>
         <origin xyz="0 0 0.075" rpy="0 0 0"/>
     </joint>
-    
+
     <gazebo reference="LIDAR">
         <material>Gazebo/Orange</material>
         <sensor type="ray" name="lidar_sensor">
@@ -55,7 +55,7 @@
     <joint name="camera_joint" type="fixed">
         <parent link="Chassis"/>
         <axis xyz="0 1 0" />
-        <origin xyz="${ChassisWidth} 0 ${ChassisHeight/2}" rpy="0 ${PI/2} 0"/>
+        <origin xyz="${ChassisWidth} 0 ${ChassisHeight/2}" rpy="0 0 0"/>
         <child link="Camera"/>
     </joint>
 
@@ -123,7 +123,7 @@
             </plugin>
         </sensor>
     </gazebo>
-    
+
 
     <link name="LASER">
         <visual>
