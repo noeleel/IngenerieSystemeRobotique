@@ -15,8 +15,8 @@ Pour afficher la carte dans gazebo seul:
 
 Pour afficher le robot seul dans gazebo dans *empty_world*:
 
-* *roslaunch desherborator_description gazebo_robot.launch*
+* *roslaunch desherborator_description desherborator_gazebo_robot.launch*
 
 Pour afficher le robot seul dans *rviz*:
 
-* *roslaunch desherborator_description rviz_robot.launch*
+* *roslaunch desherborator_description desherborator_rviz_robot.launch*
