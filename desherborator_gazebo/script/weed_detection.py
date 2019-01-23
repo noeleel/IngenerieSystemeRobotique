@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-import cv2
+import cv2 as cv2
 import numpy as np
 import matplotlib.pyplot as plt
 import time
@@ -30,7 +30,11 @@ def distance(h_reel, F,frame):
 
     # Find contours
     isolated = cv2.bitwise_and(frame, frame, mask=mask)
-    im2, contours, hierachiy = cv2.findContours(mask, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+    version = int(cv2.__version__[0])
+    if version == 3:
+        im2, contours, hierachiy = cv2.findContours(mask, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+    if version == 4:
+        contours, hierachiy = cv2.findContours(mask, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
 
     # Find minimum rectangle
     if len(contours) > 0:
