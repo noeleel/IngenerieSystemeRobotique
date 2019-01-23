@@ -1,6 +1,7 @@
 <launch>
 
   <node name="weed_generator" pkg="desherborator_gazebo" type="weed_generator.py" args="$(find desherborator_gazebo)/model/"/>
+  <node name="weed_detection" pkg="desherborator_gazebo" type="weed_detection.py" output="screen" />
 
 
   <arg name="paused" default="false"/>
