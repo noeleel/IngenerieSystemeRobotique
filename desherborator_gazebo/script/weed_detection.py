@@ -24,8 +24,8 @@ def distance(h_reel, F,frame):
     HSV = cv2.cvtColor(frame, cv2.COLOR_RGB2HSV)
 
     # Create the mask
-    lower_green = np.array([50,100,50])
-    upper_green = np.array([150, 255, 255])
+    lower_green = np.array([40,150,255])
+    upper_green = np.array([60, 150, 255])
     mask = cv2.inRange(HSV, lower_green, upper_green)
 
     # Find contours
