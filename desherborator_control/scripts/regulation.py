@@ -4,7 +4,7 @@ import numpy as np
 
 from std_msgs.msg import Bool
 from geometry_msgs.msg import Twist
-from geometry_msgs.msg import Pose2D
+from geometry_msgs.msg import Pose2D,Pose
 from geometry_msgs.msg import Quaternion
 
 Distance = 0
@@ -50,13 +50,13 @@ def pid_callback(data):
 
 def pose_callback(data):
     global x
-    x = data.x
+    x = data.position.x
 
     global y
-    y = data.y
+    y = data.position.y
 
     global theta
-    theta = data.theta
+    theta = data.orientation.z
 
 
 
@@ -72,7 +72,7 @@ def regulation():
     rospy.Subscriber("DistAngle", Pose2D,callback)
     rospy.Subscriber("PID",Quaternion,pid_callback)
 
-    rospy.Subscriber("/gps/fixed",Pose2D,pose_callback) 
+    rospy.Subscriber("pose_robot",Pose,pose_callback) 
 
     
     while not rospy.is_shutdown():
