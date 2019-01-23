@@ -172,10 +172,10 @@ if __name__ == '__main__':
     rospy.init_node('dist_angle')
 
     # Publishers
-    pub = rospy.Publisher('DistAngle_pub', Pose2D)
+    pub = rospy.Publisher('DistAngle', Pose2D, queue_size=10)
     distAngle = Pose2D()
 
-    pub1 = rospy.Publisher('pose_robot', Pose)
+    pub1 = rospy.Publisher('pose_robot', Pose, queue_size=10)
     pose_robot = Pose()
 
     # Subscribers

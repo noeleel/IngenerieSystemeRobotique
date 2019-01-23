@@ -1,0 +1,867 @@
+<?xml version='1.0'?>
+<sdf version='1.6'>
+  <model name='unit_cylinder'>
+    <link name='link_4_clone_0'>
+      <pose frame=''>0.976086118014 1.18849499106 0.01 0 0 -0</pose>
+      <inertial>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0</iyy>
+          <iyz>0</iyz>
+          <izz>0</izz>
+        </inertia>
+        <pose frame=''>0 0 0.01 0 -0 0</pose>
+      </inertial>
+      <gravity>1</gravity>
+      <self_collide>0</self_collide>
+      <kinematic>0</kinematic>
+      <visual name='visual'>
+        <pose frame=''>0 0 0.01 0 -0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.0614434317451</radius>
+            <length>0.1</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <lighting>1</lighting>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Grey</name>
+          </script>
+          <shader type='pixel'>
+            <normal_map>__default__</normal_map>
+          </shader>
+          <ambient>0 1 0.3 1</ambient>
+          <diffuse>0 1 0 1</diffuse>
+          <specular>0 1 0 1</specular>
+          <emissive>0 0 0 1</emissive>
+        </material>
+        <transparency>0</transparency>
+        <cast_shadows>1</cast_shadows>
+      </visual>
+    </link>
+    <link name='link_4_clone_1'>
+      <pose frame=''>-3.21815571925 1.43623971423 0.01 0 0 -0</pose>
+      <inertial>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0</iyy>
+          <iyz>0</iyz>
+          <izz>0</izz>
+        </inertia>
+        <pose frame=''>0 0 0.01 0 -0 0</pose>
+      </inertial>
+      <gravity>1</gravity>
+      <self_collide>0</self_collide>
+      <kinematic>0</kinematic>
+      <visual name='visual'>
+        <pose frame=''>0 0 0.01 0 -0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.0523234184967</radius>
+            <length>0.1</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <lighting>1</lighting>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Grey</name>
+          </script>
+          <shader type='pixel'>
+            <normal_map>__default__</normal_map>
+          </shader>
+          <ambient>0 1 0.3 1</ambient>
+          <diffuse>0 1 0 1</diffuse>
+          <specular>0 1 0 1</specular>
+          <emissive>0 0 0 1</emissive>
+        </material>
+        <transparency>0</transparency>
+        <cast_shadows>1</cast_shadows>
+      </visual>
+    </link>
+    <link name='link_4_clone_2'>
+      <pose frame=''>1.81710290596 -0.00158734171305 0.01 0 0 -0</pose>
+      <inertial>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0</iyy>
+          <iyz>0</iyz>
+          <izz>0</izz>
+        </inertia>
+        <pose frame=''>0 0 0.01 0 -0 0</pose>
+      </inertial>
+      <gravity>1</gravity>
+      <self_collide>0</self_collide>
+      <kinematic>0</kinematic>
+      <visual name='visual'>
+        <pose frame=''>0 0 0.01 0 -0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.0641650103587</radius>
+            <length>0.1</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <lighting>1</lighting>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Grey</name>
+          </script>
+          <shader type='pixel'>
+            <normal_map>__default__</normal_map>
+          </shader>
+          <ambient>0 1 0.3 1</ambient>
+          <diffuse>0 1 0 1</diffuse>
+          <specular>0 1 0 1</specular>
+          <emissive>0 0 0 1</emissive>
+        </material>
+        <transparency>0</transparency>
+        <cast_shadows>1</cast_shadows>
+      </visual>
+    </link>
+    <link name='link_4_clone_3'>
+      <pose frame=''>-0.604888793075 2.55797339266 0.01 0 0 -0</pose>
+      <inertial>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0</iyy>
+          <iyz>0</iyz>
+          <izz>0</izz>
+        </inertia>
+        <pose frame=''>0 0 0.01 0 -0 0</pose>
+      </inertial>
+      <gravity>1</gravity>
+      <self_collide>0</self_collide>
+      <kinematic>0</kinematic>
+      <visual name='visual'>
+        <pose frame=''>0 0 0.01 0 -0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.0322593603388</radius>
+            <length>0.1</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <lighting>1</lighting>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Grey</name>
+          </script>
+          <shader type='pixel'>
+            <normal_map>__default__</normal_map>
+          </shader>
+          <ambient>0 1 0.3 1</ambient>
+          <diffuse>0 1 0 1</diffuse>
+          <specular>0 1 0 1</specular>
+          <emissive>0 0 0 1</emissive>
+        </material>
+        <transparency>0</transparency>
+        <cast_shadows>1</cast_shadows>
+      </visual>
+    </link>
+    <link name='link_4_clone_4'>
+      <pose frame=''>0.575726251939 -0.536613881101 0.01 0 0 -0</pose>
+      <inertial>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0</iyy>
+          <iyz>0</iyz>
+          <izz>0</izz>
+        </inertia>
+        <pose frame=''>0 0 0.01 0 -0 0</pose>
+      </inertial>
+      <gravity>1</gravity>
+      <self_collide>0</self_collide>
+      <kinematic>0</kinematic>
+      <visual name='visual'>
+        <pose frame=''>0 0 0.01 0 -0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.0103600836146</radius>
+            <length>0.1</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <lighting>1</lighting>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Grey</name>
+          </script>
+          <shader type='pixel'>
+            <normal_map>__default__</normal_map>
+          </shader>
+          <ambient>0 1 0.3 1</ambient>
+          <diffuse>0 1 0 1</diffuse>
+          <specular>0 1 0 1</specular>
+          <emissive>0 0 0 1</emissive>
+        </material>
+        <transparency>0</transparency>
+        <cast_shadows>1</cast_shadows>
+      </visual>
+    </link>
+    <link name='link_4_clone_5'>
+      <pose frame=''>-1.6877653529 -2.20967344559 0.01 0 0 -0</pose>
+      <inertial>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0</iyy>
+          <iyz>0</iyz>
+          <izz>0</izz>
+        </inertia>
+        <pose frame=''>0 0 0.01 0 -0 0</pose>
+      </inertial>
+      <gravity>1</gravity>
+      <self_collide>0</self_collide>
+      <kinematic>0</kinematic>
+      <visual name='visual'>
+        <pose frame=''>0 0 0.01 0 -0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.0296252139845</radius>
+            <length>0.1</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <lighting>1</lighting>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Grey</name>
+          </script>
+          <shader type='pixel'>
+            <normal_map>__default__</normal_map>
+          </shader>
+          <ambient>0 1 0.3 1</ambient>
+          <diffuse>0 1 0 1</diffuse>
+          <specular>0 1 0 1</specular>
+          <emissive>0 0 0 1</emissive>
+        </material>
+        <transparency>0</transparency>
+        <cast_shadows>1</cast_shadows>
+      </visual>
+    </link>
+    <link name='link_4_clone_6'>
+      <pose frame=''>2.32832100583 -0.534179091652 0.01 0 0 -0</pose>
+      <inertial>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0</iyy>
+          <iyz>0</iyz>
+          <izz>0</izz>
+        </inertia>
+        <pose frame=''>0 0 0.01 0 -0 0</pose>
+      </inertial>
+      <gravity>1</gravity>
+      <self_collide>0</self_collide>
+      <kinematic>0</kinematic>
+      <visual name='visual'>
+        <pose frame=''>0 0 0.01 0 -0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.0430319976023</radius>
+            <length>0.1</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <lighting>1</lighting>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Grey</name>
+          </script>
+          <shader type='pixel'>
+            <normal_map>__default__</normal_map>
+          </shader>
+          <ambient>0 1 0.3 1</ambient>
+          <diffuse>0 1 0 1</diffuse>
+          <specular>0 1 0 1</specular>
+          <emissive>0 0 0 1</emissive>
+        </material>
+        <transparency>0</transparency>
+        <cast_shadows>1</cast_shadows>
+      </visual>
+    </link>
+    <link name='link_4_clone_7'>
+      <pose frame=''>-4.41302410906 -0.067689262819 0.01 0 0 -0</pose>
+      <inertial>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0</iyy>
+          <iyz>0</iyz>
+          <izz>0</izz>
+        </inertia>
+        <pose frame=''>0 0 0.01 0 -0 0</pose>
+      </inertial>
+      <gravity>1</gravity>
+      <self_collide>0</self_collide>
+      <kinematic>0</kinematic>
+      <visual name='visual'>
+        <pose frame=''>0 0 0.01 0 -0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.0203180765255</radius>
+            <length>0.1</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <lighting>1</lighting>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Grey</name>
+          </script>
+          <shader type='pixel'>
+            <normal_map>__default__</normal_map>
+          </shader>
+          <ambient>0 1 0.3 1</ambient>
+          <diffuse>0 1 0 1</diffuse>
+          <specular>0 1 0 1</specular>
+          <emissive>0 0 0 1</emissive>
+        </material>
+        <transparency>0</transparency>
+        <cast_shadows>1</cast_shadows>
+      </visual>
+    </link>
+    <link name='link_4_clone_8'>
+      <pose frame=''>-2.69518842711 -2.17220835653 0.01 0 0 -0</pose>
+      <inertial>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0</iyy>
+          <iyz>0</iyz>
+          <izz>0</izz>
+        </inertia>
+        <pose frame=''>0 0 0.01 0 -0 0</pose>
+      </inertial>
+      <gravity>1</gravity>
+      <self_collide>0</self_collide>
+      <kinematic>0</kinematic>
+      <visual name='visual'>
+        <pose frame=''>0 0 0.01 0 -0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.0227439069378</radius>
+            <length>0.1</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <lighting>1</lighting>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Grey</name>
+          </script>
+          <shader type='pixel'>
+            <normal_map>__default__</normal_map>
+          </shader>
+          <ambient>0 1 0.3 1</ambient>
+          <diffuse>0 1 0 1</diffuse>
+          <specular>0 1 0 1</specular>
+          <emissive>0 0 0 1</emissive>
+        </material>
+        <transparency>0</transparency>
+        <cast_shadows>1</cast_shadows>
+      </visual>
+    </link>
+    <link name='link_4_clone_9'>
+      <pose frame=''>-3.90868421394 1.18678874519 0.01 0 0 -0</pose>
+      <inertial>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0</iyy>
+          <iyz>0</iyz>
+          <izz>0</izz>
+        </inertia>
+        <pose frame=''>0 0 0.01 0 -0 0</pose>
+      </inertial>
+      <gravity>1</gravity>
+      <self_collide>0</self_collide>
+      <kinematic>0</kinematic>
+      <visual name='visual'>
+        <pose frame=''>0 0 0.01 0 -0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.0514695486815</radius>
+            <length>0.1</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <lighting>1</lighting>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Grey</name>
+          </script>
+          <shader type='pixel'>
+            <normal_map>__default__</normal_map>
+          </shader>
+          <ambient>0 1 0.3 1</ambient>
+          <diffuse>0 1 0 1</diffuse>
+          <specular>0 1 0 1</specular>
+          <emissive>0 0 0 1</emissive>
+        </material>
+        <transparency>0</transparency>
+        <cast_shadows>1</cast_shadows>
+      </visual>
+    </link>
+    <link name='link_4_clone_10'>
+      <pose frame=''>-3.86668476525 3.92517629884 0.01 0 0 -0</pose>
+      <inertial>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0</iyy>
+          <iyz>0</iyz>
+          <izz>0</izz>
+        </inertia>
+        <pose frame=''>0 0 0.01 0 -0 0</pose>
+      </inertial>
+      <gravity>1</gravity>
+      <self_collide>0</self_collide>
+      <kinematic>0</kinematic>
+      <visual name='visual'>
+        <pose frame=''>0 0 0.01 0 -0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.0644205428475</radius>
+            <length>0.1</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <lighting>1</lighting>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Grey</name>
+          </script>
+          <shader type='pixel'>
+            <normal_map>__default__</normal_map>
+          </shader>
+          <ambient>0 1 0.3 1</ambient>
+          <diffuse>0 1 0 1</diffuse>
+          <specular>0 1 0 1</specular>
+          <emissive>0 0 0 1</emissive>
+        </material>
+        <transparency>0</transparency>
+        <cast_shadows>1</cast_shadows>
+      </visual>
+    </link>
+    <link name='link_4_clone_11'>
+      <pose frame=''>2.66343549132 -2.17309642822 0.01 0 0 -0</pose>
+      <inertial>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0</iyy>
+          <iyz>0</iyz>
+          <izz>0</izz>
+        </inertia>
+        <pose frame=''>0 0 0.01 0 -0 0</pose>
+      </inertial>
+      <gravity>1</gravity>
+      <self_collide>0</self_collide>
+      <kinematic>0</kinematic>
+      <visual name='visual'>
+        <pose frame=''>0 0 0.01 0 -0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.0530918455799</radius>
+            <length>0.1</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <lighting>1</lighting>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Grey</name>
+          </script>
+          <shader type='pixel'>
+            <normal_map>__default__</normal_map>
+          </shader>
+          <ambient>0 1 0.3 1</ambient>
+          <diffuse>0 1 0 1</diffuse>
+          <specular>0 1 0 1</specular>
+          <emissive>0 0 0 1</emissive>
+        </material>
+        <transparency>0</transparency>
+        <cast_shadows>1</cast_shadows>
+      </visual>
+    </link>
+    <link name='link_4_clone_12'>
+      <pose frame=''>-3.21436693051 -3.61374109163 0.01 0 0 -0</pose>
+      <inertial>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0</iyy>
+          <iyz>0</iyz>
+          <izz>0</izz>
+        </inertia>
+        <pose frame=''>0 0 0.01 0 -0 0</pose>
+      </inertial>
+      <gravity>1</gravity>
+      <self_collide>0</self_collide>
+      <kinematic>0</kinematic>
+      <visual name='visual'>
+        <pose frame=''>0 0 0.01 0 -0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.0322858388363</radius>
+            <length>0.1</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <lighting>1</lighting>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Grey</name>
+          </script>
+          <shader type='pixel'>
+            <normal_map>__default__</normal_map>
+          </shader>
+          <ambient>0 1 0.3 1</ambient>
+          <diffuse>0 1 0 1</diffuse>
+          <specular>0 1 0 1</specular>
+          <emissive>0 0 0 1</emissive>
+        </material>
+        <transparency>0</transparency>
+        <cast_shadows>1</cast_shadows>
+      </visual>
+    </link>
+    <link name='link_4_clone_13'>
+      <pose frame=''>0.274997638403 -0.0610435282584 0.01 0 0 -0</pose>
+      <inertial>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0</iyy>
+          <iyz>0</iyz>
+          <izz>0</izz>
+        </inertia>
+        <pose frame=''>0 0 0.01 0 -0 0</pose>
+      </inertial>
+      <gravity>1</gravity>
+      <self_collide>0</self_collide>
+      <kinematic>0</kinematic>
+      <visual name='visual'>
+        <pose frame=''>0 0 0.01 0 -0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.0639637903706</radius>
+            <length>0.1</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <lighting>1</lighting>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Grey</name>
+          </script>
+          <shader type='pixel'>
+            <normal_map>__default__</normal_map>
+          </shader>
+          <ambient>0 1 0.3 1</ambient>
+          <diffuse>0 1 0 1</diffuse>
+          <specular>0 1 0 1</specular>
+          <emissive>0 0 0 1</emissive>
+        </material>
+        <transparency>0</transparency>
+        <cast_shadows>1</cast_shadows>
+      </visual>
+    </link>
+    <link name='link_4_clone_14'>
+      <pose frame=''>-0.221967304867 1.43433538608 0.01 0 0 -0</pose>
+      <inertial>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0</iyy>
+          <iyz>0</iyz>
+          <izz>0</izz>
+        </inertia>
+        <pose frame=''>0 0 0.01 0 -0 0</pose>
+      </inertial>
+      <gravity>1</gravity>
+      <self_collide>0</self_collide>
+      <kinematic>0</kinematic>
+      <visual name='visual'>
+        <pose frame=''>0 0 0.01 0 -0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.0446793487268</radius>
+            <length>0.1</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <lighting>1</lighting>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Grey</name>
+          </script>
+          <shader type='pixel'>
+            <normal_map>__default__</normal_map>
+          </shader>
+          <ambient>0 1 0.3 1</ambient>
+          <diffuse>0 1 0 1</diffuse>
+          <specular>0 1 0 1</specular>
+          <emissive>0 0 0 1</emissive>
+        </material>
+        <transparency>0</transparency>
+        <cast_shadows>1</cast_shadows>
+      </visual>
+    </link>
+    <link name='link_4_clone_15'>
+      <pose frame=''>1.99654924223 3.03450837117 0.01 0 0 -0</pose>
+      <inertial>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0</iyy>
+          <iyz>0</iyz>
+          <izz>0</izz>
+        </inertia>
+        <pose frame=''>0 0 0.01 0 -0 0</pose>
+      </inertial>
+      <gravity>1</gravity>
+      <self_collide>0</self_collide>
+      <kinematic>0</kinematic>
+      <visual name='visual'>
+        <pose frame=''>0 0 0.01 0 -0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.0359565131442</radius>
+            <length>0.1</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <lighting>1</lighting>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Grey</name>
+          </script>
+          <shader type='pixel'>
+            <normal_map>__default__</normal_map>
+          </shader>
+          <ambient>0 1 0.3 1</ambient>
+          <diffuse>0 1 0 1</diffuse>
+          <specular>0 1 0 1</specular>
+          <emissive>0 0 0 1</emissive>
+        </material>
+        <transparency>0</transparency>
+        <cast_shadows>1</cast_shadows>
+      </visual>
+    </link>
+    <link name='link_4_clone_16'>
+      <pose frame=''>1.31244740237 -0.572322107677 0.01 0 0 -0</pose>
+      <inertial>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0</iyy>
+          <iyz>0</iyz>
+          <izz>0</izz>
+        </inertia>
+        <pose frame=''>0 0 0.01 0 -0 0</pose>
+      </inertial>
+      <gravity>1</gravity>
+      <self_collide>0</self_collide>
+      <kinematic>0</kinematic>
+      <visual name='visual'>
+        <pose frame=''>0 0 0.01 0 -0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.0156820370707</radius>
+            <length>0.1</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <lighting>1</lighting>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Grey</name>
+          </script>
+          <shader type='pixel'>
+            <normal_map>__default__</normal_map>
+          </shader>
+          <ambient>0 1 0.3 1</ambient>
+          <diffuse>0 1 0 1</diffuse>
+          <specular>0 1 0 1</specular>
+          <emissive>0 0 0 1</emissive>
+        </material>
+        <transparency>0</transparency>
+        <cast_shadows>1</cast_shadows>
+      </visual>
+    </link>
+    <link name='link_4_clone_17'>
+      <pose frame=''>3.80708763968 -2.61134884184 0.01 0 0 -0</pose>
+      <inertial>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0</iyy>
+          <iyz>0</iyz>
+          <izz>0</izz>
+        </inertia>
+        <pose frame=''>0 0 0.01 0 -0 0</pose>
+      </inertial>
+      <gravity>1</gravity>
+      <self_collide>0</self_collide>
+      <kinematic>0</kinematic>
+      <visual name='visual'>
+        <pose frame=''>0 0 0.01 0 -0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.0652899973217</radius>
+            <length>0.1</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <lighting>1</lighting>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Grey</name>
+          </script>
+          <shader type='pixel'>
+            <normal_map>__default__</normal_map>
+          </shader>
+          <ambient>0 1 0.3 1</ambient>
+          <diffuse>0 1 0 1</diffuse>
+          <specular>0 1 0 1</specular>
+          <emissive>0 0 0 1</emissive>
+        </material>
+        <transparency>0</transparency>
+        <cast_shadows>1</cast_shadows>
+      </visual>
+    </link>
+    <link name='link_4_clone_18'>
+      <pose frame=''>-1.02215208348 2.11610160172 0.01 0 0 -0</pose>
+      <inertial>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0</iyy>
+          <iyz>0</iyz>
+          <izz>0</izz>
+        </inertia>
+        <pose frame=''>0 0 0.01 0 -0 0</pose>
+      </inertial>
+      <gravity>1</gravity>
+      <self_collide>0</self_collide>
+      <kinematic>0</kinematic>
+      <visual name='visual'>
+        <pose frame=''>0 0 0.01 0 -0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.0189673189521</radius>
+            <length>0.1</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <lighting>1</lighting>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Grey</name>
+          </script>
+          <shader type='pixel'>
+            <normal_map>__default__</normal_map>
+          </shader>
+          <ambient>0 1 0.3 1</ambient>
+          <diffuse>0 1 0 1</diffuse>
+          <specular>0 1 0 1</specular>
+          <emissive>0 0 0 1</emissive>
+        </material>
+        <transparency>0</transparency>
+        <cast_shadows>1</cast_shadows>
+      </visual>
+    </link>
+    <link name='link_4_clone_19'>
+      <pose frame=''>2.42771761266 0.726106381975 0.01 0 0 -0</pose>
+      <inertial>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0</iyy>
+          <iyz>0</iyz>
+          <izz>0</izz>
+        </inertia>
+        <pose frame=''>0 0 0.01 0 -0 0</pose>
+      </inertial>
+      <gravity>1</gravity>
+      <self_collide>0</self_collide>
+      <kinematic>0</kinematic>
+      <visual name='visual'>
+        <pose frame=''>0 0 0.01 0 -0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.0523026728325</radius>
+            <length>0.1</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <lighting>1</lighting>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Grey</name>
+          </script>
+          <shader type='pixel'>
+            <normal_map>__default__</normal_map>
+          </shader>
+          <ambient>0 1 0.3 1</ambient>
+          <diffuse>0 1 0 1</diffuse>
+          <specular>0 1 0 1</specular>
+          <emissive>0 0 0 1</emissive>
+        </material>
+        <transparency>0</transparency>
+        <cast_shadows>1</cast_shadows>
+      </visual>
+    </link>
+    <static>1</static>
+    <allow_auto_disable>1</allow_auto_disable>
+  </model>
+</sdf>

@@ -64,8 +64,8 @@ def pose_callback(data):
 def regulation():
     rospy.init_node("regulation",anonymous=True)
 
-    pub  = rospy.Publisher("cmd_vel",Twist)
-    goal = rospy.Publisher("OnZone",Bool)
+    pub  = rospy.Publisher("cmd_vel",Twist, queue_size=10)
+    goal = rospy.Publisher("OnZone",Bool, queue_size=10)
     rate = rospy.Rate(10)
 
 
