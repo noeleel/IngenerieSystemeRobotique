@@ -68,7 +68,7 @@ def wait_desintregration():
 def main():
     rospy.init_node("move_arm")
     rospy.Subscriber("OnZone", Bool ,callback)
-    destroyHerb = rospy.Publisher("HerbDestroyed",Bool, queue_size=10)
+    destroyHerb = rospy.Publisher("HDestroyed",Bool, queue_size=10)
     while not rospy.is_shutdown():
         destroyHerb.publish(0)
         goToInitialPose()
