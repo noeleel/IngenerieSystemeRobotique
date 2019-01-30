@@ -118,10 +118,7 @@ class Block:
         self._relative_entity_name = relative_entity_name
         self._posex = 0
         self._posey = 0
-        self._posez = 0
-        self._orix = 0
-        self._oriy = 0
-        self._oriz = 0
+        self._yaw = 0
 
 
     def gazebo_models(self):
@@ -132,10 +129,17 @@ class Block:
 
             self._posex = resp_coordinates.pose.position.x
             self._posey = resp_coordinates.pose.position.y
-            self._posez = resp_coordinates.pose.position.z
-            self._orix = resp_coordinates.pose.orientation.x
-            self._oriy = resp_coordinates.pose.orientation.y
-            self._oriz = resp_coordinates.pose.orientation.z
+
+            ox = resp_coordinates.pose.orientation.x
+            oy = resp_coordinates.pose.orientation.y
+            oz = resp_coordinates.pose.orientation.z
+            oz = resp_coordinates.pose.orientation.w
+
+            orientation_list = [ox, oy, oz, ow]
+            (roll, pitch, yaw) = euler_from_quaternion (orientation_list)
+            self._yaw = yaw
+
+
             #rospy.loginfo("{}".format(resp_coordinates))
 
         except rospy.ServiceException as e:
@@ -191,35 +195,31 @@ i = 0
 
 if __name__ == '__main__':
     global bool_weed_red
-
+    #Initialisation
     rospy.init_node('dist_angle')
     ic = image_converter()
     bobot = Block('desherborator', 'robot')
 
     # Publishers
-    pub1 = rospy.Publisher('pose_robot', Pose, queue_size=10)
+    pub1 = rospy.Publisher('pose_robot', Pose2D, queue_size=10)
     pose_robot = Pose()
 
     # Subscribers
-    rospy.Subscriber("WeedDestroyed",Bool, cb_bool) #TODO
+    rospy.Subscriber("WeedDestroyed",Bool, cb_bool)
 
     # Services
     rospy.wait_for_service("/gazebo/spawn_urdf_model")
     spawnModelService = rospy.ServiceProxy("/gazebo/spawn_urdf_model", SpawnModel)  # Spawn the boxes
     request = SpawnModelRequest()
-
-    bobot = Block('desherborator', 'robot')
+    
     rate = rospy.Rate(25)
 
     while not rospy.is_shutdown():
         #Calcul varibale
         bobot.gazebo_models()
-        pose_robot.position.x = bobot._posex
-        pose_robot.position.y = bobot._posey
-        pose_robot.position.z = bobot._posez
-        pose_robot.orientation.x = bobot._orix
-        pose_robot.orientation.y = bobot._oriy
-        pose_robot.orientation.z = bobot._oriz
+        pose_robot.x = bobot._posex
+        pose_robot.y = bobot._posey
+        pose_robot.theta = bobot._yaw
         pub1.publish(pose_robot)
 
         xrbt = bobot._posex + np.cos(bobot._oriz) * 0.26
