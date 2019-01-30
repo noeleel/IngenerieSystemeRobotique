@@ -80,7 +80,7 @@ def WeedAngle(frame, cnt):
 
         dot = x1*x2 + y1*y2      # dot product
         det = x1*y2 - y1*x2      # determinant
-        angle = arctan2(det, dot)  # atan2(y, x) or atan2(sin, cos)
+        angle = np.arctan2(det, dot)  # atan2(y, x) or atan2(sin, cos)
     except:
         angle = 0
     return angle
@@ -217,8 +217,8 @@ if __name__ == '__main__':
         pose_robot.theta = bobot._yaw
         pub1.publish(pose_robot)
 
-        xrbt = bobot._posex + np.cos(bobot._yaw) * 0.70
-        yrbt = bobot._posey + np.sin(bobot._yaw) * 0.70
+        xrbt = bobot._posex + np.cos(bobot._yaw) * 0.51
+        yrbt = bobot._posey + np.sin(bobot._yaw) * 0.51
         # Changement detat des weeds
 
         if bool_weed_red:
