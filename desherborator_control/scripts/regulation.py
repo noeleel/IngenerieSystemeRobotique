@@ -1,11 +1,12 @@
 #!/usr/bin/env python
 import rospy
-import numpy
+import numpy as np
 
 from std_msgs.msg import Bool
 from geometry_msgs.msg import Twist
 from geometry_msgs.msg import Pose2D,Pose
 from geometry_msgs.msg import Quaternion
+from tf.transformations import euler_from_quaternion, quaternion_from_euler
 
 Distance = 0
 Angle = 0
@@ -17,9 +18,17 @@ kd_d = -0.01
 kp_a = 0.5
 kd_a = -0.1
 
+x = 0
+y = 0
+theta = 0
+
 V_MAX = 0.25
 OMEGA_MAX = 0.5
 
+List_edge = [ [3,3],[3,-3],[-3,-3],[-3,3] ]
+indice = 0
+Research_objectif = 0
+Initial_edge = 0
 
 def callback(data):
     global Distance
@@ -32,10 +41,10 @@ def pid_callback(data):
     kp_d = data.x
 
     global kd_d
-    kp_d = data.x
+    kp_d = data.y
 
     global kp_a
-    kp_d = data.x
+    kp_d = data.z
 
     global kd_a
     kp_d = data.w
@@ -48,8 +57,11 @@ def pose_callback(data):
     y = data.position.y
 
     global theta
-    theta = data.orientation.z
-
+    orientation_q = data.orientation
+    orientation_list = [orientation_q.x, orientation_q.y, orientation_q.z, orientation_q.w]
+    (_, _, yaw) = euler_from_quaternion (orientation_list)
+    
+    theta = yaw
 
 
 
@@ -57,36 +69,55 @@ def pose_callback(data):
 def regulation():
     rospy.init_node("regulation",anonymous=True)
 
-    pub  = rospy.Publisher("cmd_vel",Twist)
-    goal = rospy.Publisher("OnZone",Bool)
+    pub  = rospy.Publisher("cmd_vel",Twist, queue_size=10)
+    goal = rospy.Publisher("OnZone",Bool, queue_size=10)
     rate = rospy.Rate(10)
 
 
     rospy.Subscriber("DistAngle", Pose2D,callback)
     rospy.Subscriber("PID",Quaternion,pid_callback)
+
     rospy.Subscriber("pose_robot",Pose,pose_callback) 
 
     
     while not rospy.is_shutdown():
         global Commande
+        global indice
         stop = 0
 
         if Distance == 0:
-            x  = 0
-            theta = 1
+            obj_x = List_edge[indice][0]
+            obj_y = List_edge[indice][1]
+            dist_edge = ( (x-obj_x)**2 + (y-obj_y)**2 )**0.5
+
+            if dist_edge<offset:
+                if not Research_objectif:
+                    Research_objectif = 1
+                    Initial_edge = indice
+                indice=(indice+1)%4
+
+                if Initial_edge == indice:
+                    break
+            angle = np.arctan2([obj_y-y],[obj_x-x])
+
+            v  = kp_d * dist_edge
+            tp = kp_a * angle
+
+
         else:
+            Research_objectif = 0
             if Distance <= offset :
-                x  = 0
-                theta = kp_a * Angle + kd_a * Commande.angular.z
-                if theta <= 0.01:
-                    theta = 0
+                v  = 0
+                tp = kp_a * Angle + kd_a * Commande.angular.z
+                if tp <= 0.01:
+                    tp = 0
                     stop = 1
             else:
-                x  = kp_d * (Distance - offset) + kd_d * Commande.linear.x
-                theta = kp_a * Angle + kd_a * Commande.angular.z
+                v  = kp_d * (Distance - offset) + kd_d * Commande.linear.x
+                tp = kp_a * Angle + kd_a * Commande.angular.z
         
-        Commande.linear.x = min(x,V_MAX)
-        Commande.angular.z = min(max(theta,-OMEGA_MAX),OMEGA_MAX)
+        Commande.linear.x = min(v,V_MAX)
+        Commande.angular.z = min(max(tp,-OMEGA_MAX),OMEGA_MAX)
 
 
         goal.publish(stop)

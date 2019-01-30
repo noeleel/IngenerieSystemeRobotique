@@ -1,8 +1,7 @@
 <launch>
 
   <node name="weed_generator" pkg="desherborator_gazebo" type="weed_generator.py" args="$(find desherborator_gazebo)/model/"/>
-  <node name="weed_detection" pkg="desherborator_gazebo" type="weed_detection.py" output="screen" />
-
+  <node name="weed_detection" pkg="desherborator_gazebo" type="weed_detection.py" args="$(find desherborator_gazebo)/model/" output="screen" />
 
   <arg name="paused" default="false"/>
   <arg name="use_sim_time" default="true"/>
@@ -18,14 +17,6 @@
     <arg name="use_sim_time" value="$(arg use_sim_time)"/>
     <arg name="headless" value="$(arg headless)"/>
   </include>
-
-  <!-- Load the SDF into the ROS Parameter Server -->
-  <param name="weed"
-    textfile="$(find desherborator_gazebo)/model/model.sdf" />
-
-  <!-- Run a python script to the send a service call to gazebo_ros to spawn a URDF robot -->
-  <node name="sdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
-  args="-urdf -model garden -file $(find desherborator_gazebo)/model/model.sdf"/>
 
   <!-- node_name="weed_detection" pkg="desherborator_gazebo" type="weed_detection.py" args="$(find desherborator_gazebo)/model/ -->
 

@@ -14,20 +14,17 @@ find_package(catkin REQUIRED COMPONENTS
   rospy
   std_msgs
   geometry_msgs
-  cv_brigde
-  opencv2
-  sensors_msgs
+  cv_bridge
+  sensor_msgs
 
 )
 
 find_package(PkgConfig REQUIRED)
 find_package(OpenCV)
-find_package(cv_brigde)
 include_directories(include ${OpenCV_INCLUDE_DIRS})
 pkg_check_modules(OpenCV REQUIRED opencv)
 link_directories(${OpenCV_LIBRARY_DIRS})
 
-find_package()
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
 

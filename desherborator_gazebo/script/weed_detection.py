@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-import cv2
+import cv2 as cv2
 import numpy as np
 import matplotlib.pyplot as plt
 import time
@@ -24,19 +24,23 @@ def distance(h_reel, F,frame):
     HSV = cv2.cvtColor(frame, cv2.COLOR_RGB2HSV)
 
     # Create the mask
-    lower_green = np.array([50,100,50])
-    upper_green = np.array([150, 255, 255])
+    lower_green = np.array([16, 0, 0])
+    upper_green = np.array([200, 255, 255])
     mask = cv2.inRange(HSV, lower_green, upper_green)
 
     # Find contours
     isolated = cv2.bitwise_and(frame, frame, mask=mask)
-    im2, contours, hierachiy = cv2.findContours(mask, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+    version = int(cv2.__version__[0])
+    if version == 3:
+        im2, contours, hierachiy = cv2.findContours(mask, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+    if version == 4:
+        contours, hierachiy = cv2.findContours(mask, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
 
     # Find minimum rectangle
     if len(contours) > 0:
         areas = [cv2.contourArea(c) for c in contours]
         max_index = np.argmax(areas)
-        cnt = contour[max_index]
+        cnt = contours[max_index]
         x,y,w,h = cv2.boundingRect(cnt)
         dist = h_reel * F / h
     else:
@@ -138,17 +142,31 @@ class image_converter:
   def __init__(self):
 
     self.bridge = CvBridge()
+
     self.image_sub = rospy.Subscriber("/main_camera/image_raw", Image, self.cb_cam)
+
 
   def cb_cam(self,data):
     try:
         cv_image = self.bridge.imgmsg_to_cv2(data, "rgb8")
         cv_image = np.uint8(cv_image)
+
+        dist, cnt = distance(h_reel, F, cv_image)
+        theta = WeedAngle(cv_image, cnt)
+
+        #Publish
+        pub = rospy.Publisher('DistAngle', Pose2D, queue_size=10)
+        distAngle = Pose2D()
+        distAngle.x = dist
+        distAngle.theta = theta
+        pub.publish(distAngle)
+
     except CvBridgeError as e:
       print(e)
 
 
 def cb_bool(msg):
+    global bool_weed_red
     bool_weed_red = msg.data
 
 ##########################################################################
@@ -159,42 +177,39 @@ def cb_bool(msg):
 
 ### Constantes
 h_reel = 0.1
-F = 1.3962634   #F = distance_objet(m) * hauteur pixel weed / hauteur reel objet(m)
+fov = 1.3962634 #F = distance_objet(m) * hauteur pixel weed / hauteur reel objet(m)
+larg = 1280
+F = (0.5*larg) / np.tan(fov*0.5) 
 cv_image = np.zeros((1280,720,3))
+bool_weed_red = 0
 
 
 if __name__ == '__main__':
+    global bool_weed_red
     ic = image_converter()
+
     rospy.init_node('dist_angle')
+    ic = image_converter()
+    bobot = Block('desherborator', 'robot')
+    bobot.gazebo_models()
 
     # Publishers
-    pub = rospy.Publisher('DistAngle_pub', Pose2D)
-    distAngle = Pose2D()
-
-    pub1 = rospy.Publisher('pose_robot', Pose)
+    pub1 = rospy.Publisher('pose_robot', Pose, queue_size=10)
     pose_robot = Pose()
 
     # Subscribers
-    rospy.Subscriber("/bool_action",Bool, cb_bool) #TODO
+    rospy.Subscriber("WeedDestroyed",Bool, cb_bool) #TODO
 
     # Services
+    rospy.wait_for_service("/gazebo/spawn_urdf_model")
     spawnModelService = rospy.ServiceProxy("/gazebo/spawn_urdf_model", SpawnModel)  # Spawn the boxes
     request = SpawnModelRequest()
 
     bobot = Block('desherborator', 'robot')
-
     rate = rospy.Rate(25)
 
     while not rospy.is_shutdown():
         #Calcul varibale
-        bool_weed_red = 0
-        dist, cnt = distance(h_reel, F, cv_image)
-        theta = WeedAngle(cv_image, cnt)
-        bobot.gazebo_models()
-        #Publish
-        distAngle.x = dist
-        distAngle.theta = theta
-        pub.publish(distAngle)
 
         pose_robot.position.x = bobot._posex
         pose_robot.position.y = bobot._posey
@@ -206,8 +221,8 @@ if __name__ == '__main__':
 
         xrbt = bobot._posex + np.cos(bobot._oriz) * 0.26
         yrbt = bobot._posey + np.sin(bobot._oriz) * 0.26
-
         # Changement detat des weeds
+        print bool_weed_red
         if bool_weed_red:
             modif_couleur(request, xrbt, yrbt)
 
