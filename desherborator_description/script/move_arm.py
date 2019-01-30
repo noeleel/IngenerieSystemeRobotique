@@ -69,13 +69,17 @@ def main():
     rospy.init_node("move_arm")
     rospy.Subscriber("OnZone", Bool ,callback)
     destroyWeed = rospy.Publisher("WeedDestroyed",Bool, queue_size=10)
+    rate = rospy.Rate(25)
     while not rospy.is_shutdown():
-        destroyWeed.publish(0)
         goToInitialPose()
-        if plant_detected == True:
+        if plant_detected:
             deploy_arm()
             wait_desintregration()
             destroyWeed.publish(1)
+        else:
+            destroyWeed.publish(0)
+
+        rate.sleep()
 
 
 
