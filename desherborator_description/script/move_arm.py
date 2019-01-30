@@ -9,8 +9,8 @@ from math import sin, cos, atan2, sqrt, fabs
 from time import sleep
 
 # Define publishers for joint1 and joint2 position controller commands.joint_chassis_to_dummy
-jointSlidingArmPublisher = rospy.Publisher('/desWeedorator/slidingArm_position_controller/command', Float64, queue_size=10)
-jointRotatingArmPublisher = rospy.Publisher('/desWeedorator/rotatingArm_position_controller/command', Float64, queue_size=10)
+jointSlidingArmPublisher = rospy.Publisher('/desherborator/slidingArm_position_controller/command', Float64, queue_size=10)
+jointRotatingArmPublisher = rospy.Publisher('/desherborator/rotatingArm_position_controller/command', Float64, queue_size=10)
 
 # Min and max command for sliding the robot
 max_command = 0.1
@@ -58,11 +58,11 @@ def deploy_arm():
     slide_down(max_command)
     sleep(1)
 
-# Used for waiting until the Weed is desintegrated
+# Used for waiting until the herb is desintegrated
 def wait_desintregration():
     wait_time = 15
     sleep(wait_time)
-    print "Weed desintegrated"
+    print " desintegrated"
 
 # Main file
 def main():
