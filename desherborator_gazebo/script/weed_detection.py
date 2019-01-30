@@ -99,7 +99,7 @@ def modif_couleur(request, xrbt, yrbt,i):
         urdf.replace("4000", str(xrbt))
         urdf.replace("3000", str(yrbt))
 
-        request.model_name = "box"
+        request.model_name = "box"+str(i)
         request.model_xml = urdf
         request.initial_pose.position.x = xrbt
         request.initial_pose.position.y = yrbt
@@ -226,7 +226,7 @@ if __name__ == '__main__':
         xrbt = bobot._posex + np.cos(bobot._oriz) * 0.26
         yrbt = bobot._posey + np.sin(bobot._oriz) * 0.26
         # Changement detat des weeds
-        print bool_weed_red
+
         if bool_weed_red:
             i+=1
             modif_couleur(request, xrbt, yrbt,i)
