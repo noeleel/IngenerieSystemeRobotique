@@ -11,10 +11,9 @@ import rospy
 from geometry_msgs.msg import Pose2D, Pose, Twist
 from std_msgs.msg import Bool
 from sensor_msgs.msg import Image
-from gazebo_msgs.srv import SpawnModel, SpawnModelRequest, GetModelState
+from gazebo_msgs.srv import SpawnModel, SpawnModelRequest,  SpawnModelResponse, GetModelState
 from cv_bridge import CvBridge, CvBridgeError
 from tf.transformations import euler_from_quaternion
-
 
 
 # Calcul the distance to the weed
@@ -94,10 +93,6 @@ def modif_couleur(request, xrbt, yrbt,i):
 
         with open(PATH+"box.urdf", "r") as stream:
             urdf = stream.read()
-
-        urdf.replace("simple_box",str(nom))
-        urdf.replace("4", str(xrbt))
-        urdf.replace("3", str(yrbt))
 
         request.model_name = "box"+str(i)
         request.model_xml = urdf
@@ -222,8 +217,8 @@ if __name__ == '__main__':
         pose_robot.theta = bobot._yaw
         pub1.publish(pose_robot)
 
-        xrbt = bobot._posex # + np.cos(bobot._yaw) * 0.26
-        yrbt = bobot._posey # + np.sin(bobot._yaw) * 0.26
+        xrbt = bobot._posex + np.cos(bobot._yaw) * 0.70
+        yrbt = bobot._posey + np.sin(bobot._yaw) * 0.70
         # Changement detat des weeds
 
         if bool_weed_red:
