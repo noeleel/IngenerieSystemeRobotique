@@ -62,20 +62,20 @@ def deploy_arm():
 def wait_desintregration():
     wait_time = 15
     sleep(wait_time)
-    print "Herb desintegrated"
+    print "Weed desintegrated"
 
 # Main file
 def main():
     rospy.init_node("move_arm")
     rospy.Subscriber("OnZone", Bool ,callback)
-    destroyHerb = rospy.Publisher("HerbDestroyed",Bool, queue_size=10)
+    destroyWeed = rospy.Publisher("WeedDestroyed",Bool, queue_size=10)
     while not rospy.is_shutdown():
-        destroyHerb.publish(0)
+        destroyWeed.publish(0)
         goToInitialPose()
         if plant_detected == True:
             deploy_arm()
             wait_desintregration()
-            destroyHerb.publish(1)
+            destroyWeed.publish(1)
 
 
 
