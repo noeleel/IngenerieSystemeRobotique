@@ -1,23 +1,5 @@
 <?xml version="1.0"?>
 <launch>
-
-
-    <arg name="paused" default="false"/>
-    <arg name="use_sim_time" default="true"/>
-    <arg name="gui" default="true"/>
-    <arg name="headless" default="false"/>
-    <arg name="debug" default="false"/>
-
-    <include file="$(find gazebo_ros)/launch/empty_world.launch">
-        <arg name="debug" value="$(arg debug)" />
-        <arg name="gui" value="$(arg gui)" />
-        <arg name="paused" value="$(arg paused)"/>
-        <arg name="use_sim_time" value="$(arg use_sim_time)"/>
-        <arg name="headless" value="$(arg headless)"/>
-    </include>
-
-
-    <arg name="verbose" value="true"/>
     <!--Create the URDF file from xacro files-->
     <arg name="model" default="$(find desherborator_description)/urdf/desherborator.urdf.xacro"/>
     <param name="robot_description" 
@@ -44,6 +26,6 @@
     </node>
         
     <!-- Control the robotic arm -->
-    <!--<node name="move_arm" pkg="desherborator_description" type="move_arm.py" args="$(find desherborator_description)/model/"/>-->
+    <node name="move_arm" pkg="desherborator_description" type="move_arm.py" args="$(find desherborator_description)/model/"/>
     
 </launch>

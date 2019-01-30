@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-import cv2
+import cv2 as cv2
 import numpy as np
 import matplotlib.pyplot as plt
 import time
@@ -24,13 +24,17 @@ def distance(h_reel, F,frame):
     HSV = cv2.cvtColor(frame, cv2.COLOR_RGB2HSV)
 
     # Create the mask
-    lower_green = np.array([50,100,50])
-    upper_green = np.array([150, 255, 255])
+    lower_green = np.array([40,150,255])
+    upper_green = np.array([60, 150, 255])
     mask = cv2.inRange(HSV, lower_green, upper_green)
 
     # Find contours
     isolated = cv2.bitwise_and(frame, frame, mask=mask)
-    im2, contours, hierachiy = cv2.findContours(mask, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+    version = int(cv2.__version__[0])
+    if version == 3:
+        im2, contours, hierachiy = cv2.findContours(mask, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+    if version == 4:
+        contours, hierachiy = cv2.findContours(mask, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
 
     # Find minimum rectangle
     if len(contours) > 0:
@@ -168,10 +172,10 @@ if __name__ == '__main__':
     rospy.init_node('dist_angle')
 
     # Publishers
-    pub = rospy.Publisher('DistAngle_pub', Pose2D)
+    pub = rospy.Publisher('DistAngle', Pose2D, queue_size=10)
     distAngle = Pose2D()
 
-    pub1 = rospy.Publisher('pose_robot', Pose)
+    pub1 = rospy.Publisher('pose_robot', Pose, queue_size=10)
     pose_robot = Pose()
 
     # Subscribers

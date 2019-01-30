@@ -6,6 +6,7 @@ from std_msgs.msg import Bool
 from geometry_msgs.msg import Twist
 from geometry_msgs.msg import Pose2D,Pose
 from geometry_msgs.msg import Quaternion
+from tf.transformations import euler_from_quaternion, quaternion_from_euler
 
 Distance = 0
 Angle = 0
@@ -56,7 +57,11 @@ def pose_callback(data):
     y = data.position.y
 
     global theta
-    theta = data.orientation.z
+    orientation_q = data.orientation
+    orientation_list = [orientation_q.x, orientation_q.y, orientation_q.z, orientation_q.w]
+    (_, _, yaw) = euler_from_quaternion (orientation_list)
+    
+    theta = yaw
 
 
 
@@ -64,8 +69,8 @@ def pose_callback(data):
 def regulation():
     rospy.init_node("regulation",anonymous=True)
 
-    pub  = rospy.Publisher("cmd_vel",Twist)
-    goal = rospy.Publisher("OnZone",Bool)
+    pub  = rospy.Publisher("cmd_vel",Twist, queue_size=10)
+    goal = rospy.Publisher("OnZone",Bool, queue_size=10)
     rate = rospy.Rate(10)
 
 

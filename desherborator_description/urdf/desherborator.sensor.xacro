@@ -27,10 +27,10 @@
         <ray>
             <scan>
             <horizontal>
-                <samples>720</samples>
+                <samples>20</samples>
                 <resolution>1</resolution>
-                <min_angle>0.0</min_angle>
-                <max_angle>6.2</max_angle>
+                <min_angle>-3.0</min_angle>
+                <max_angle>3.0</max_angle>
             </horizontal>
             </scan>
             <range>
@@ -175,5 +175,35 @@
         </plugin>
         </sensor>
     </gazebo>
+
+    <link name="GPS_link">
+        <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+            <cylinder radius="0.005" length="0.005"/>
+        </geometry>
+        </visual>
+        <xacro:default_inertial mass="0.05"/>
+    </link>
+
+    <joint name="GPS_joint" type="fixed">
+        <parent link="Chassis"/>
+        <child link="GPS_link"/>
+        <origin xyz="-0.01 0 0" rpy="0 0 0"/>
+    </joint>
+
+<gazebo>
+    <plugin filename="libhector_gazebo_ros_gps.so" name="GPS_link">
+        <alwayson>true</alwayson>
+        <updateRate>10</updateRate> 
+        <bodyName>GPS_link</bodyName>
+        <topicName>/fix</topicName> 
+        <velocityTopicName>/vel</velocityTopicName>
+        <drift>5.0 5.0 5.0</drift> 
+        <gaussianNoise>0.0000001 0.0000001 0.0000001</gaussianNoise>
+        <velocityDrift>0 0 0</velocityDrift> 
+        <velocityGaussianNoise>0.0000001 0.0000001 0.0000001</velocityGaussianNoise> 
+    </plugin> 
+</gazebo>
 
 </robot>
