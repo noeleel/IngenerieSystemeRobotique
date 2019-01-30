@@ -52,17 +52,13 @@ def pid_callback(data):
 
 def pose_callback(data):
     global x
-    x = data.position.x
+    x = data.x
 
     global y
-    y = data.position.y
+    y = data.y
 
     global theta
-    orientation_q = data.orientation
-    orientation_list = [orientation_q.x, orientation_q.y, orientation_q.z, orientation_q.w]
-    (_, _, yaw) = euler_from_quaternion (orientation_list)
-    
-    theta = yaw
+    theta = data.theta
 
 
 
@@ -78,7 +74,7 @@ def regulation():
     rospy.Subscriber("DistAngle", Pose2D,callback)
     rospy.Subscriber("PID",Quaternion,pid_callback)
 
-    rospy.Subscriber("pose_robot",Pose,pose_callback) 
+    rospy.Subscriber("pose_robot",Pose2D,pose_callback) 
 
     
     while not rospy.is_shutdown():

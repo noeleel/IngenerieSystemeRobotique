@@ -13,7 +13,7 @@ from std_msgs.msg import Bool
 from sensor_msgs.msg import Image
 from gazebo_msgs.srv import SpawnModel, SpawnModelRequest, GetModelState
 from cv_bridge import CvBridge, CvBridgeError
-
+from tf.transformations import euler_from_quaternion
 
 
 
@@ -133,7 +133,7 @@ class Block:
             ox = resp_coordinates.pose.orientation.x
             oy = resp_coordinates.pose.orientation.y
             oz = resp_coordinates.pose.orientation.z
-            oz = resp_coordinates.pose.orientation.w
+            ow = resp_coordinates.pose.orientation.w
 
             orientation_list = [ox, oy, oz, ow]
             (roll, pitch, yaw) = euler_from_quaternion (orientation_list)
@@ -202,7 +202,7 @@ if __name__ == '__main__':
 
     # Publishers
     pub1 = rospy.Publisher('pose_robot', Pose2D, queue_size=10)
-    pose_robot = Pose()
+    pose_robot = Pose2D()
 
     # Subscribers
     rospy.Subscriber("WeedDestroyed",Bool, cb_bool)
@@ -222,8 +222,8 @@ if __name__ == '__main__':
         pose_robot.theta = bobot._yaw
         pub1.publish(pose_robot)
 
-        xrbt = bobot._posex + np.cos(bobot._oriz) * 0.26
-        yrbt = bobot._posey + np.sin(bobot._oriz) * 0.26
+        xrbt = bobot._posex + np.cos(bobot._yaw) * 0.26
+        yrbt = bobot._posey + np.sin(bobot._yaw) * 0.26
         # Changement detat des weeds
 
         if bool_weed_red:
