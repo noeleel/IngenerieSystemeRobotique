@@ -166,6 +166,7 @@ class image_converter:
 
 
 def cb_bool(msg):
+    global bool_weed_red
     bool_weed_red = msg.data
 
 ##########################################################################
@@ -180,9 +181,13 @@ fov = 1.3962634 #F = distance_objet(m) * hauteur pixel weed / hauteur reel objet
 larg = 1280
 F = (0.5*larg) / np.tan(fov*0.5) 
 cv_image = np.zeros((1280,720,3))
+bool_weed_red = 0
 
 
 if __name__ == '__main__':
+    global bool_weed_red
+    ic = image_converter()
+
     rospy.init_node('dist_angle')
     ic = image_converter()
     bobot = Block('desherborator', 'robot')
@@ -193,20 +198,19 @@ if __name__ == '__main__':
     pose_robot = Pose()
 
     # Subscribers
-    rospy.Subscriber("/bool_action",Bool, cb_bool) #TODO
+    rospy.Subscriber("WeedDestroyed",Bool, cb_bool) #TODO
 
     # Services
-    rospy.wait_for_service("/gazebo")
+    rospy.wait_for_service("/gazebo/spawn_urdf_model")
     spawnModelService = rospy.ServiceProxy("/gazebo/spawn_urdf_model", SpawnModel)  # Spawn the boxes
     request = SpawnModelRequest()
 
-
-
+    bobot = Block('desherborator', 'robot')
     rate = rospy.Rate(25)
 
     while not rospy.is_shutdown():
         #Calcul varibale
-        bool_weed_red = 0
+
         pose_robot.position.x = bobot._posex
         pose_robot.position.y = bobot._posey
         pose_robot.position.z = bobot._posez
@@ -218,6 +222,7 @@ if __name__ == '__main__':
         xrbt = bobot._posex + np.cos(bobot._oriz) * 0.26
         yrbt = bobot._posey + np.sin(bobot._oriz) * 0.26
         # Changement detat des weeds
+        print bool_weed_red
         if bool_weed_red:
             modif_couleur(request, xrbt, yrbt)
 
