@@ -94,12 +94,12 @@ def modif_couleur(request, xrbt, yrbt,i):
 
         with open(PATH+"box.urdf", "r") as stream:
             urdf = stream.read()
-            
+
         urdf.replace("simple_box",str(nom))
         urdf.replace("4000", str(xrbt))
         urdf.replace("3000", str(yrbt))
 
-        request.model_name = "box"
+        request.model_name = "box"+str(i)
         request.model_xml = urdf
         request.initial_pose.position.x = xrbt
         request.initial_pose.position.y = yrbt
@@ -108,6 +108,7 @@ def modif_couleur(request, xrbt, yrbt,i):
         response = spawnModelService(request)
         if response.success:
             rospy.loginfo("Spawn_Success")
+            rospy.sleep(3)
         else:
             rospy.logwarn(response.status_message)
 
