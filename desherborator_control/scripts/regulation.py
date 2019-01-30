@@ -16,8 +16,8 @@ Commande = Twist()
 kp_d = 0.1
 kd_d = -0.01
 
-kp_a = 0.5
-kd_a = -0.1
+kp_a = 1.0
+kd_a = -0.2
 
 x = 0
 y = 0
