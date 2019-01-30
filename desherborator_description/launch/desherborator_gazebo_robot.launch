@@ -26,6 +26,6 @@
     </node>
         
     <!-- Control the robotic arm -->
-    <node name="move_arm" pkg="desherborator_description" type="move_arm.py" args="$(find desherborator_description)/model/"/>
+    <node name="move_arm" pkg="desherborator_description" type="move_arm.py" args="$(find desherborator_description)/model/" output="screen" />
     
 </launch>
