@@ -227,7 +227,7 @@ if __name__ == '__main__':
         xrbt = bobot._posex + np.cos(bobot._oriz) * 0.26
         yrbt = bobot._posey + np.sin(bobot._oriz) * 0.26
         # Changement detat des weeds
-        print bool_weed_red
+
         if bool_weed_red:
             i+=1
             modif_couleur(request, xrbt, yrbt,i)
