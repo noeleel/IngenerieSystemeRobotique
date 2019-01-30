@@ -8,9 +8,10 @@ from geometry_msgs.msg import Pose2D,Pose
 from geometry_msgs.msg import Quaternion
 from tf.transformations import euler_from_quaternion, quaternion_from_euler
 
+from time import sleep
 Distance = 0
 Angle = 0
-offset = 0.2598
+offset = 0.4
 Commande = Twist()
 kp_d = 0.1
 kd_d = -0.01
@@ -84,6 +85,53 @@ def regulation():
         global Commande
         global indice
         stop = 0
+
+        # Assert the robot stay in the square [ [4.2,4.2],[4.2,-4.2],[-4.2,-4.2],[-4.2,4.2] ]
+        if (abs(x) - 4.2 > 0) or (abs(y) - 4.2)> 0:
+            if x > 0 and x - 4.2 > 0:
+                Commande.linear.x = 0
+                Commande.angular.z = -OMEGA_MAX
+                pub.publish(Commande)
+                sleep(1.5)
+
+                Commande.linear.x = V_MAX
+                Commande.angular.z = 0
+                pub.publish(Commande)
+                sleep(2)
+                print("Too close from max x limit")
+            elif x < 0 and x + 4.2 < 0:
+                Commande.linear.x = 0
+                Commande.angular.z = OMEGA_MAX
+                pub.publish(Commande)
+                sleep(1.5)
+
+                Commande.linear.x = V_MAX
+                Commande.angular.z = 0
+                pub.publish(Commande)
+                sleep(2)
+                print("Too close from min x limit")
+            elif y < 0 and y + 4.2 < 0:
+                Commande.linear.x = 0
+                Commande.angular.z = -OMEGA_MAX
+                pub.publish(Commande)
+                sleep(3)
+
+                Commande.linear.x = V_MAX
+                Commande.angular.z = 0
+                pub.publish(Commande)
+                sleep(2)
+                print("Too close from max y limit")
+            elif y < 0 and y + 4.2 < 0:
+                Commande.linear.x = 0
+                Commande.angular.z = OMEGA_MAX
+                pub.publish(Commande)
+                sleep(3)
+
+                Commande.linear.x = V_MAX
+                Commande.angular.z = 0
+                pub.publish(Commande)
+                sleep(2)
+                print("Too close from min y limit")
 
         if Distance == 0:
             obj_x = List_edge[indice][0]
