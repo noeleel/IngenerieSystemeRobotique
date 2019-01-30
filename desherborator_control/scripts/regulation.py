@@ -22,7 +22,7 @@ x = 0
 y = 0
 theta = 0
 
-V_MAX = 0.25
+V_MAX = 0.1
 OMEGA_MAX = 0.5
 
 List_edge = [ [3,3],[3,-3],[-3,-3],[-3,3] ]
