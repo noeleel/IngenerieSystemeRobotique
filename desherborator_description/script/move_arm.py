@@ -62,7 +62,7 @@ def deploy_arm():
 def wait_desintregration():
     wait_time = 15
     sleep(wait_time)
-    print " desintegrated"
+    print "Weed desintegrated"
 
 # Main file
 def main():
