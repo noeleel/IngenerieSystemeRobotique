@@ -182,6 +182,7 @@ if __name__ == '__main__':
     rospy.Subscriber("/bool_action",Bool, cb_bool) #TODO
 
     # Services
+    rospy.wait_for_service("/gazebo")
     spawnModelService = rospy.ServiceProxy("/gazebo/spawn_urdf_model", SpawnModel)  # Spawn the boxes
     request = SpawnModelRequest()
 
