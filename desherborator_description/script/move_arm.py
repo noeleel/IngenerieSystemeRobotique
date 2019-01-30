@@ -20,6 +20,7 @@ min_command = 0
 plant_detected = False
 
 def callback(msg):
+    global plant_detected
     plant_detected = msg.data
 
 def goToInitialPose():
@@ -65,8 +66,8 @@ def wait_desintregration():
 
 # Main file
 def main():
-    rospy.Subscriber("/OnZone", Bool ,callback)
     rospy.init_node("move_arm")
+    rospy.Subscriber("OnZone", Bool ,callback)
     destroyHerb = rospy.Publisher("HerbDestroyed",Bool, queue_size=10)
     while not rospy.is_shutdown():
         destroyHerb.publish(0)
