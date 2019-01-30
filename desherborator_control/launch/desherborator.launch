@@ -2,7 +2,7 @@
 
 <launch>
 
-  <node name="regulation" pkg="desherborator_control" type="regulation.py"/>
+  <node name="regulation" pkg="desherborator_control" type="regulation.py" output="screen"/>
   <include file="$(find desherborator_gazebo)/launch/garden.launch" />
   <include file="$(find desherborator_description)/launch/desherborator_gazebo_robot.launch" />
 

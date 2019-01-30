@@ -191,12 +191,10 @@ i = 0
 
 if __name__ == '__main__':
     global bool_weed_red
-    ic = image_converter()
 
     rospy.init_node('dist_angle')
     ic = image_converter()
     bobot = Block('desherborator', 'robot')
-    bobot.gazebo_models()
 
     # Publishers
     pub1 = rospy.Publisher('pose_robot', Pose, queue_size=10)
@@ -215,7 +213,7 @@ if __name__ == '__main__':
 
     while not rospy.is_shutdown():
         #Calcul varibale
-
+        bobot.gazebo_models()
         pose_robot.position.x = bobot._posex
         pose_robot.position.y = bobot._posey
         pose_robot.position.z = bobot._posez
