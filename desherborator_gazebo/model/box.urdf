@@ -13,7 +13,9 @@
         </geometry>
       </visual>
     </link>
-    <gazebo reference="my_box">*
+    <gazebo reference="my_box">
+      <static>1</static>
+      <turngravityOff>true<turnGravityOff>
       <visual>
         <material>
           <ambient> 1 0 0 1 </ambient>
@@ -23,6 +25,5 @@
         </material>
       </visual>
     </gazebo>
-    <static>1</static>
     <allow_auto_disable>1</allow_auto_disable>
   </robot>

@@ -87,14 +87,17 @@ def WeedAngle(frame, cnt):
     return angle
 
 # change status of the weed alive => dead
-def modif_couleur(request, xrbt, yrbt):
+def modif_couleur(request, xrbt, yrbt,i):
         PATH = sys.argv[1]
         urdf = ""
+        nom = "simple_box"+str(i)
+
         with open(PATH+"box.urdf", "r") as stream:
             urdf = stream.read()
-
-        urdf.replace("{xrbt}", str(xrbt))
-        urdf.replace("{yrbt}", str(yrbt))
+            
+        urdf.replace("simple_box",str(nom))
+        urdf.replace("4000", str(xrbt))
+        urdf.replace("3000", str(yrbt))
 
         request.model_name = "box"
         request.model_xml = urdf
@@ -179,9 +182,10 @@ def cb_bool(msg):
 h_reel = 0.1
 fov = 1.3962634 #F = distance_objet(m) * hauteur pixel weed / hauteur reel objet(m)
 larg = 1280
-F = (0.5*larg) / np.tan(fov*0.5) 
+F = (0.5*larg) / np.tan(fov*0.5)
 cv_image = np.zeros((1280,720,3))
 bool_weed_red = 0
+i = 0
 
 
 if __name__ == '__main__':
@@ -224,6 +228,7 @@ if __name__ == '__main__':
         # Changement detat des weeds
         print bool_weed_red
         if bool_weed_red:
-            modif_couleur(request, xrbt, yrbt)
+            i+=1
+            modif_couleur(request, xrbt, yrbt,i)
 
         rate.sleep()
