@@ -9,8 +9,8 @@ from math import sin, cos, atan2, sqrt, fabs
 from time import sleep
 
 # Define publishers for joint1 and joint2 position controller commands.joint_chassis_to_dummy
-jointSlidingArmPublisher = rospy.Publisher('/desherborator/slidingArm_position_controller/command', Float64, queue_size=10)
-jointRotatingArmPublisher = rospy.Publisher('/desherborator/rotatingArm_position_controller/command', Float64, queue_size=10)
+jointSlidingArmPublisher = rospy.Publisher('/desWeedorator/slidingArm_position_controller/command', Float64, queue_size=10)
+jointRotatingArmPublisher = rospy.Publisher('/desWeedorator/rotatingArm_position_controller/command', Float64, queue_size=10)
 
 # Min and max command for sliding the robot
 max_command = 0.1
@@ -58,24 +58,24 @@ def deploy_arm():
     slide_down(max_command)
     sleep(1)
 
-# Used for waiting until the herb is desintegrated
+# Used for waiting until the Weed is desintegrated
 def wait_desintregration():
     wait_time = 15
     sleep(wait_time)
-    print "Herb desintegrated"
+    print "Weed desintegrated"
 
 # Main file
 def main():
     rospy.init_node("move_arm")
     rospy.Subscriber("OnZone", Bool ,callback)
-    destroyHerb = rospy.Publisher("HDestroyed",Bool, queue_size=10)
+    destroyWeed = rospy.Publisher("WeedDestroyed",Bool, queue_size=10)
     while not rospy.is_shutdown():
-        destroyHerb.publish(0)
+        destroyWeed.publish(0)
         goToInitialPose()
         if plant_detected == True:
             deploy_arm()
             wait_desintregration()
-            destroyHerb.publish(1)
+            destroyWeed.publish(1)
 
 
 
