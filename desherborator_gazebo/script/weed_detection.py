@@ -96,8 +96,8 @@ def modif_couleur(request, xrbt, yrbt,i):
             urdf = stream.read()
 
         urdf.replace("simple_box",str(nom))
-        urdf.replace("4000", str(xrbt))
-        urdf.replace("3000", str(yrbt))
+        urdf.replace("4", str(xrbt))
+        urdf.replace("3", str(yrbt))
 
         request.model_name = "box"+str(i)
         request.model_xml = urdf
@@ -231,5 +231,6 @@ if __name__ == '__main__':
         if bool_weed_red:
             i+=1
             modif_couleur(request, xrbt, yrbt,i)
+            print "x : "+str(xrbt)+" y : "+str(yrbt)
 
         rate.sleep()
