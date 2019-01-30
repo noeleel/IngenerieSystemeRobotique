@@ -20,9 +20,10 @@ def generer_herbe (fichier, nombre_plantes=1):
 		request.model_xml = urdf
 		x_herbe = uniform(-4.5,4.5)
 		y_herbe = uniform(-4.5,4.5)
+		z_herbe = 0.1/2
 		request.initial_pose.position.x = x_herbe
 		request.initial_pose.position.y = y_herbe
-
+		request.initial_pose.position.z = z_herbe
 		response = spawnerService(request)
 		if not response.success:
 			rospy.logwarn("Unable to spawn weed {}: {}".format(i, response.status_message))
