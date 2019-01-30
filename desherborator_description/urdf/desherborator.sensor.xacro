@@ -22,12 +22,12 @@
         <material>Gazebo/Orange</material>
         <sensor type="ray" name="lidar_sensor">
         <pose>0 0 0 0 0 0</pose>
-        <visualize>true</visualize>
+        <visualize>false</visualize>
         <update_rate>40</update_rate>
         <ray>
             <scan>
             <horizontal>
-                <samples>20</samples>
+                <samples>50</samples>
                 <resolution>1</resolution>
                 <min_angle>-3.0</min_angle>
                 <max_angle>3.0</max_angle>
