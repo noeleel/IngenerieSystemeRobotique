@@ -58,13 +58,13 @@
         <joint name="joint_brasS_to_brasC" type="fixed">
                 <parent link="BrasS1"/>
                 <child link="BrasC2"/>
-                <origin xyz="0 0.15 0" rpy="0  0  0"/>
+                <origin xyz="0 0.2 0" rpy="0  0  0"/>
         </joint>
 
         <joint name="joint_brasC_to_brasS" type="fixed">
                 <parent link="BrasC2"/>
                 <child link="BrasS2"/>
-                <origin xyz="0 0.15 0" rpy="0 0 0"/>
+                <origin xyz="0 0.2 0" rpy="0 0 0"/>
         </joint>
 
         <joint name="end_joint" type="fixed">
