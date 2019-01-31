@@ -7,6 +7,7 @@ from geometry_msgs.msg import Twist
 from geometry_msgs.msg import Pose2D,Pose
 from geometry_msgs.msg import Quaternion
 from tf.transformations import euler_from_quaternion, quaternion_from_euler
+from sensor_msgs.msg import LaserScan
 
 from time import sleep
 Distance = 0
@@ -30,6 +31,9 @@ List_edge = [ [3,3],[3,-3],[-3,-3],[-3,3] ]
 indice = 0
 Research_objectif = 0
 Initial_edge = 0
+
+lidar_ranges = 0 
+lidar_angle  = 0 
 
 def callback(data):
     global Distance
@@ -60,6 +64,12 @@ def pose_callback(data):
     global theta
     theta = data.theta
 
+def LaserScan_callback(data):
+    global lidar_ranges,lidar_angle
+    lidar_ranges = np.min(data.ranges)
+    lidar_angle  = np.argmin(data.ranges)*1.0
+    lidar_angle = data.angle_min + (data.angle_max - data.angle_min) * (lidar_angle/len(data.ranges)*1.0)
+
 
 
 
@@ -73,6 +83,7 @@ def regulation():
 
     rospy.Subscriber("DistAngle", Pose2D,callback)
     rospy.Subscriber("PID",Quaternion,pid_callback)
+    rospy.Subscriber("/laser_scan" , LaserScan , LaserScan_callback)
 
     rospy.Subscriber("pose_robot",Pose2D,pose_callback) 
 
@@ -80,54 +91,10 @@ def regulation():
     while not rospy.is_shutdown():
         global Commande
         global indice
+        global lidar_ranges,lidar_angle
         stop = 0
 
         # Assert the robot stay in the square [ [4.2,4.2],[4.2,-4.2],[-4.2,-4.2],[-4.2,4.2] ]
-        if (abs(x) - 4.2 > 0) or (abs(y) - 4.2)> 0:
-            if x > 0 and x - 4.2 > 0:
-                Commande.linear.x = 0
-                Commande.angular.z = -OMEGA_MAX
-                pub.publish(Commande)
-                sleep(1.5)
-
-                Commande.linear.x = V_MAX
-                Commande.angular.z = 0
-                pub.publish(Commande)
-                sleep(2)
-                print("Too close from max x limit")
-            elif x < 0 and x + 4.2 < 0:
-                Commande.linear.x = 0
-                Commande.angular.z = OMEGA_MAX
-                pub.publish(Commande)
-                sleep(1.5)
-
-                Commande.linear.x = V_MAX
-                Commande.angular.z = 0
-                pub.publish(Commande)
-                sleep(2)
-                print("Too close from min x limit")
-            elif y < 0 and y + 4.2 < 0:
-                Commande.linear.x = 0
-                Commande.angular.z = -OMEGA_MAX
-                pub.publish(Commande)
-                sleep(3)
-
-                Commande.linear.x = V_MAX
-                Commande.angular.z = 0
-                pub.publish(Commande)
-                sleep(2)
-                print("Too close from max y limit")
-            elif y < 0 and y + 4.2 < 0:
-                Commande.linear.x = 0
-                Commande.angular.z = OMEGA_MAX
-                pub.publish(Commande)
-                sleep(3)
-
-                Commande.linear.x = V_MAX
-                Commande.angular.z = 0
-                pub.publish(Commande)
-                sleep(2)
-                print("Too close from min y limit")
 
         if Distance == 0:
             obj_x = List_edge[indice][0]
@@ -159,6 +126,10 @@ def regulation():
             else:
                 v  = kp_d * (Distance - offset) + kd_d * Commande.linear.x
                 tp = kp_a * Angle + kd_a * Commande.angular.z
+        
+        if lidar_ranges<0.3:
+            v = np.sin(lidar_angle)*V_MAX
+            tp = (np.pi-lidar_angle+np.pi)%(2*np.pi)-np.pi
         
         Commande.linear.x = min(v,V_MAX)
         Commande.angular.z = min(max(tp,-OMEGA_MAX),OMEGA_MAX)
