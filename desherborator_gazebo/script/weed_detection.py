@@ -86,6 +86,7 @@ def WeedAngle(frame, cnt):
     return angle
 
 # change status of the weed alive => dead
+"""
 def modif_couleur(request, xrbt, yrbt,i):
         PATH = sys.argv[1]
         urdf = ""
@@ -106,6 +107,7 @@ def modif_couleur(request, xrbt, yrbt,i):
             rospy.loginfo("Spawn_Success")
         else:
             rospy.logwarn(response.status_message)
+"""
 
 class Block:
     def __init__(self, name, relative_entity_name):
@@ -200,13 +202,13 @@ if __name__ == '__main__':
     pose_robot = Pose2D()
 
     # Subscribers
-    rospy.Subscriber("WeedDestroyed",Bool, cb_bool)
+    #rospy.Subscriber("WeedDestroyed",Bool, cb_bool)
 
     # Services
     rospy.wait_for_service("/gazebo/spawn_urdf_model")
     spawnModelService = rospy.ServiceProxy("/gazebo/spawn_urdf_model", SpawnModel)  # Spawn the boxes
     request = SpawnModelRequest()
-    
+
     rate = rospy.Rate(25)
 
     while not rospy.is_shutdown():
@@ -220,9 +222,11 @@ if __name__ == '__main__':
         xrbt = bobot._posex + np.cos(bobot._yaw) * 0.65
         yrbt = bobot._posey + np.sin(bobot._yaw) * 0.65
         # Changement detat des weeds
+        """
         if bool_weed_red:
             i+=1
             modif_couleur(request, xrbt, yrbt,i)
             print "x : "+str(xrbt)+" y : "+str(yrbt)
+        """
 
         rate.sleep()

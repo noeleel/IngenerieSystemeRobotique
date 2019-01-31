@@ -5,6 +5,9 @@ import sys
 import rospy
 from gazebo_msgs.srv import SpawnModel, SpawnModelRequest, SpawnModelResponse
 from math import sqrt
+from geometry_msgs.msg import Pose2D, Pose, Twist
+from std_msgs.msg import Bool
+
 
 
 def generer_herbe (fichier, nombre_plantes=1):
@@ -55,14 +58,40 @@ def compare_coord(x,y):
 
 	return name_destroyed
 
-#rosservice call gazebo/delete_model '{model_name: rrbot1}' pour supprimer modele (commande ros)
+def cb_bool(msg):
+    global bool_weed_red
+    bool_weed_red = msg.data
+
+def cb_pose(msg):
+    global x,y
+    x = msg.x
+	y = msg.y
 
 if __name__ == '__main__':
     #PATH = "/home/haddock/5.8/src/desherborator_gazebo/model/"
+	rospy.init_node('gener_destr')
+
+	rospy.Subscriber("WeedDestroyed",Bool, cb_bool)
+	rospy.Subscriber("Estimated_position",PoseD, cb_pose)
 
     dictionary = {}
 
+	#Generation
     PATH = sys.argv[1]
     fichier_modele = PATH+"model.urdf"
     nombre_plantes = 30
     generer_herbe(fichier_modele, nombre_plantes)
+
+	#Suppression
+	global bool_weed_red
+	if bool_weed_red:
+		global x,y
+		name = compare_coord(x,y)
+
+		DeleteService = rospy.ServiceProxy("/gazebo/delete_model", DeleteModel)
+		DeleteService(str(name))
+		request = SpawnModelRequest()
+		print 'Weed Deleted'
+		rospy.sleep(5)
+
+	rate.sleep()
