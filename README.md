@@ -38,3 +38,6 @@ Pour afficher le robot seul dans gazebo dans *empty_world*:
 Pour afficher le robot seul dans *rviz*:
 
 * *roslaunch desherborator_description desherborator_rviz_robot.launch*
+
+Une ébauche d'un code python pour supprimer les herbes en temps réel est disponible. 
+Voir dans desherborator_gazebo/weed.generator.py. 
