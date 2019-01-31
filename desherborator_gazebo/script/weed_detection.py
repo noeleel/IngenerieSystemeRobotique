@@ -104,7 +104,6 @@ def modif_couleur(request, xrbt, yrbt,i):
         rospy.sleep(5)
         if response.success:
             rospy.loginfo("Spawn_Success")
-            
         else:
             rospy.logwarn(response.status_message)
 
@@ -221,7 +220,7 @@ if __name__ == '__main__':
         xrbt = bobot._posex + np.cos(bobot._yaw) * 0.65
         yrbt = bobot._posey + np.sin(bobot._yaw) * 0.65
         # Changement detat des weeds
-
+        print bool_weed_red
         if bool_weed_red:
             i+=1
             modif_couleur(request, xrbt, yrbt,i)
