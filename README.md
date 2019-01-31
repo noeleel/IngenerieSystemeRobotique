@@ -13,6 +13,15 @@ Avant de lancer le programme, merci d'installer les libraires ros suivantes:
 
     **sous Melodic:**
           sudo apt-get install ros-melodic-gazebo-ros-pkgs ros-melodic-gazebo-ros-control ros-melodic-hector-gazebo ros-melodic-gazebo-plugins ros-melodic-gazebo-msgs ros-melodic-effort-controllers
+          
+          pour gmapping: https://answers.ros.org/question/300480/building-open_gmapping-from-source-on-melodicubuntu-1804/
+          
+          rosdep update
+          cd /ros_ws
+          git clone https://github.com/ros-perception/openslam_gmapping src/openslam_gmapping
+          git clone https://github.com/ros-perception/slam_gmapping src/slam_gmapping
+          rosdep install --from-paths src/ -i
+          catkin_make
 ----------
 Pour lancer le programme dans sa globalité:
 
