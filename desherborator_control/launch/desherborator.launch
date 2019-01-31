@@ -13,4 +13,5 @@
   <include file="$(find desherborator_description)/launch/desherborator_gazebo_robot.launch" />
   <node name="remap_frame_topics" pkg="topic_tools" type="relay" args="$(arg from_topic) $(arg to_topic)"/>
   <node name="SLAM" pkg="gmapping" type="slam_gmapping" args="$(arg laser_topic)"/>
+  <node name="position_estimation" pkg="desherborator_control" type="tf_map_to_pose.py"/>
 </launch>
