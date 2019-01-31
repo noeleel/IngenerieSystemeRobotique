@@ -72,7 +72,7 @@ if __name__ == '__main__':
 	rospy.init_node('gener_destr')
 
 	rospy.Subscriber("WeedDestroyed",Bool, cb_bool)
-	rospy.Subscriber("Estimated_position",PoseD, cb_pose)
+	rospy.Subscriber("Estimated_Position",Pose2D, cb_pose)
 
     dictionary = {}
 
