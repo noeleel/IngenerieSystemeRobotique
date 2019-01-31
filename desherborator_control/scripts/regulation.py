@@ -11,7 +11,7 @@ from tf.transformations import euler_from_quaternion, quaternion_from_euler
 from time import sleep
 Distance = 0
 Angle = 0
-offset = 0.2598
+offset = 0.4
 Commande = Twist()
 kp_d = 0.1
 kd_d = -0.01

@@ -217,8 +217,8 @@ if __name__ == '__main__':
         pose_robot.theta = bobot._yaw
         pub1.publish(pose_robot)
 
-        xrbt = bobot._posex + np.cos(bobot._yaw) * 0.51
-        yrbt = bobot._posey + np.sin(bobot._yaw) * 0.51
+        xrbt = bobot._posex + np.cos(bobot._yaw) * 0.65
+        yrbt = bobot._posey + np.sin(bobot._yaw) * 0.65
         # Changement detat des weeds
         print bool_weed_red
         if bool_weed_red:
