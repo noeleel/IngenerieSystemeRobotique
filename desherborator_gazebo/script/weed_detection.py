@@ -101,9 +101,10 @@ def modif_couleur(request, xrbt, yrbt,i):
         request.initial_pose.position.z = 0
 
         response = spawnModelService(request)
+        rospy.sleep(5)
         if response.success:
             rospy.loginfo("Spawn_Success")
-            rospy.sleep(3)
+            
         else:
             rospy.logwarn(response.status_message)
 
