@@ -95,7 +95,7 @@ def regulation():
     rospy.Subscriber("PID",Quaternion,pid_callback)
     rospy.Subscriber("/laser_scan" , LaserScan , LaserScan_callback)
 
-    rospy.Subscriber("pose_robot",Pose2D,pose_callback) 
+    rospy.Subscriber("Estimated_Position",Pose2D,pose_callback) 
 
     Research_objectif = 0
     while not rospy.is_shutdown():
