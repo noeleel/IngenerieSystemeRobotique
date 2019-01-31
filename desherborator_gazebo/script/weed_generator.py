@@ -18,8 +18,8 @@ def generer_herbe (fichier, nombre_plantes=1):
 		request.model_name = "Weed_{}".format(i)
 		urdf = template.format(uniform(0.01, 0.075))
 		request.model_xml = urdf
-		x_herbe = uniform(-4.5,4.5)
-		y_herbe = uniform(-4.5,4.5)
+		x_herbe = uniform(-25,25)
+		y_herbe = uniform(-25,25)
 		z_herbe = 0.1/2
 		request.initial_pose.position.x = x_herbe
 		request.initial_pose.position.y = y_herbe
@@ -33,5 +33,5 @@ if __name__ == '__main__':
     #PATH = "/home/haddock/5.8/src/desherborator_gazebo/model/"
     PATH = sys.argv[1]
     fichier_modele = PATH+"model.urdf"
-    nombre_plantes = 10
+    nombre_plantes = 30
     generer_herbe(fichier_modele, nombre_plantes)
