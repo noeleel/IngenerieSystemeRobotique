@@ -150,7 +150,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 ${PI/2} ${PI/2}"/>
       <geometry>
-        <cylinder radius="0.01" length="0.3"/>
+        <cylinder radius="0.01" length="0.4"/>
       </geometry>
     </visual>
 
