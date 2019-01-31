@@ -60,7 +60,7 @@ def deploy_arm():
 
 # Used for waiting until the herb is desintegrated
 def wait_desintregration():
-    wait_time = 15
+    wait_time = 60
     sleep(wait_time)
     print "Weed desintegrated"
 
