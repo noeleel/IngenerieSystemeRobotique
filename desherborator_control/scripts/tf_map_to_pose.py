@@ -46,7 +46,7 @@ if __name__ == '__main__':
     listener = tf2_ros.TransformListener(tfBuffer)
 
     pub = rospy.Publisher('/Estimated_Position', Pose2D, queue_size=10)
-    rospy.Subscriber("/pose_robot" , Pose2D , pose_robot_callback)
+    rospy.Subscriber("/Estimated_Position" , Pose2D , pose_robot_callback)
 
     rate = rospy.Rate(10.0)
     while not rospy.is_shutdown():
