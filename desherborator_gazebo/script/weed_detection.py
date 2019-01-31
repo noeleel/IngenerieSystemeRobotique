@@ -24,7 +24,7 @@ def distance(h_reel, F,frame):
 
     # Create the mask
     lower_green = np.array([16, 0, 0])
-    upper_green = np.array([200, 255, 255])
+    upper_green = np.array([86, 255, 255])
     mask = cv2.inRange(HSV, lower_green, upper_green)
 
     # Find contours
@@ -219,8 +219,8 @@ if __name__ == '__main__':
         pose_robot.theta = bobot._yaw
         pub1.publish(pose_robot)
 
-        xrbt = bobot._posex + np.cos(bobot._yaw) * 0.65
-        yrbt = bobot._posey + np.sin(bobot._yaw) * 0.65
+        xrbt = bobot._posex + np.cos(bobot._yaw) * 0.6
+        yrbt = bobot._posey + np.sin(bobot._yaw) * 0.6
         # Changement detat des weeds
         """
         if bool_weed_red:
